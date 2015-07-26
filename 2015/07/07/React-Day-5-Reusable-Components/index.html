@@ -1,25 +1,29 @@
 <!doctype html>
 <html class="theme-next use-motion theme-next-mist">
 <head>
-  
+    
 
 <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
 
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
 
 
 
 
-  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
+
+
+  <link rel="stylesheet" type="text/css" href="/hexo-blog/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
 
 
 
-  <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+  <link href='//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
 
 
-<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.3"/>
+<link rel="stylesheet" type="text/css" href="/hexo-blog/css/main.css?v=0.4.4"/>
 
 
 
@@ -30,28 +34,32 @@
 
 
 
-  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.3" />
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.4" />
 
+
+<meta name="description" content="當在設計界面的時候, 用規劃好的界面結構並拆分常見的設計元素(按鈕, 表單欄位, 排版元件… 等)成可重覆利用的組件. 這樣當你下次需要再建立相同的界面時, 你可以編寫比較少的程式碼, 這意謂著將會得到更快的開發速度, 少一點的錯誤和打字.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="React Day 5 - Reusable Components">
+<meta property="og:url" content="http://zmax.github.io/2015/07/07/React-Day-5-Reusable-Components/index.html">
+<meta property="og:site_name" content="Starck Lin">
+<meta property="og:description" content="當在設計界面的時候, 用規劃好的界面結構並拆分常見的設計元素(按鈕, 表單欄位, 排版元件… 等)成可重覆利用的組件. 這樣當你下次需要再建立相同的界面時, 你可以編寫比較少的程式碼, 這意謂著將會得到更快的開發速度, 少一點的錯誤和打字.">
+<meta property="og:updated_time" content="2015-07-08T12:54:45.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="React Day 5 - Reusable Components">
+<meta name="twitter:description" content="當在設計界面的時候, 用規劃好的界面結構並拆分常見的設計元素(按鈕, 表單欄位, 排版元件… 等)成可重覆利用的組件. 這樣當你下次需要再建立相同的界面時, 你可以編寫比較少的程式碼, 這意謂著將會得到更快的開發速度, 少一點的錯誤和打字.">
 
 
 <script type="text/javascript" id="hexo.configuration">
   var CONFIG = {
     scheme: 'Mist',
-    analytics: {
-      google: ''
-    },
     sidebar: 'post'
   };
 </script>
 
-
-
-
-  <title> React Day 5 - Reusable Components // Starck Lin </title>
+    <title> React Day 5 - Reusable Components // Starck Lin </title>
 </head>
-
-<body>
-  <!--[if lte IE 8]>
+<body itemscope itemtype="http://schema.org/WebPage" lang="">
+<!--[if lte IE 8]>
   <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
     <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
       <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
@@ -61,14 +69,15 @@
   </div>
 <![endif]-->
 
-  <div class="container one-column page-post-detail">
-    <div class="headband"></div>
 
-    <div id="header" class="header">
-      <div class="header-inner">
-        <h1 class="site-meta">
+
+
+<div class="container one-column page-post-detail">
+    <div class="headband"></div>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+        <div class="header-inner"><h1 class="site-meta">
   <span class="logo-line-before"><i></i></span>
-  <a href="/" class="brand">
+  <a href="/hexo-blog/" class="brand" rel="start">
       <span class="logo">
         <i class="icon-logo"></i>
       </span>
@@ -85,7 +94,7 @@
   </button>
 </div>
 
-<div class="site-nav">
+<nav class="site-nav">
   
 
   
@@ -93,7 +102,7 @@
       
         
         <li class="menu-item menu-item-home">
-          <a href="/">
+          <a href="/" rel="section">
             <i class="menu-item-icon icon-home"></i> <br />
             首頁
           </a>
@@ -101,7 +110,7 @@
       
         
         <li class="menu-item menu-item-archives">
-          <a href="/archives">
+          <a href="/archives" rel="section">
             <i class="menu-item-icon icon-archives"></i> <br />
             歸檔
           </a>
@@ -109,7 +118,7 @@
       
         
         <li class="menu-item menu-item-tags">
-          <a href="/tags">
+          <a href="/tags" rel="section">
             <i class="menu-item-icon icon-tags"></i> <br />
             標籤
           </a>
@@ -119,26 +128,26 @@
   
 
   
-</div>
+</nav>
 
 
-      </div>
-    </div>
+        </div>
+    </header>
 
-    <div id="main" class="main">
-      <div class="main-inner">
-        <div id="content" class="content">
-          
+    <main id="main" class="main">
+        <div class="main-inner">
+            <div id="content" class="content">
+                
 
   <div id="posts" class="posts-expand">
     
 
-  <div class="post post-type-normal ">
-    <div class="post-header">
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
 
       
       
-        <h1 class="post-title">
+        <h1 class="post-title" itemprop="name headline">
           
           
             
@@ -150,7 +159,10 @@
 
       <div class="post-meta">
         <span class="post-time">
-          發表於 2015-07-07
+          發表於
+          <time itemprop="dateCreated" datetime="2015-07-07T13:49:59+08:00" content="2015-07-07">
+            2015-07-07
+          </time>
         </span>
 
         
@@ -159,7 +171,7 @@
           
         
       </div>
-    </div>
+    </header>
 
     <div class="post-body">
 
@@ -167,7 +179,7 @@
       
 
       
-        <p>當在設計界面的時候, 用規劃好的界面結構並拆分常見的設計元素(按鈕, 表單欄位, 排版元件… 等)成可重覆利用的組件. 這樣當你下次需要再建立相同的界面時, 你可以編寫比較少的程式碼, 這意謂著將會得到更快的開發速度, 少一點的錯誤和打字.</p>
+        <span itemprop="articleBody"><p>當在設計界面的時候, 用規劃好的界面結構並拆分常見的設計元素(按鈕, 表單欄位, 排版元件… 等)成可重覆利用的組件. 這樣當你下次需要再建立相同的界面時, 你可以編寫比較少的程式碼, 這意謂著將會得到更快的開發速度, 少一點的錯誤和打字.</p>
 <a id="more"></a>
 <h3 id="Prop_Validation">Prop Validation</h3><p>當在開發你的程式時, Prop Validation 可以幫助讓你的組件使用正確. 我們可以透過指定一個 <code>propTypes</code> 屬性來作到這點. <code>React.PropTypes</code> 提供了很多種驗證讓你確保接受到的資料類型是正確的. 當收到一個不正確類型的資料內容, 一個警告通知會顯示在 Javascript Console.</p>
 <p>需要注意的是基於效能考量, <code>propTypes</code> 應只在開發階段時使用. 下面將示範並說明有哪些驗證可以使用:</p>
@@ -183,17 +195,17 @@
 <p>常見的案例是有一個組件要定時地更新它自己. 可以用 <code>setInterval()</code> 輕易地作到這點, 但重點是當你不需要的時候取消定時這個機制以節約記憶體的浪費. React 提供 <a href="http://facebook.github.io/react/docs/working-with-the-browser.html#component-lifecycle" target="_blank" rel="external">lifecyle methods</a> 的一些方法來讓你知道一個組件什麼時候被建立和銷毁. 讓我們建立一個簡單的 mixin 並用這些方法來提供一個簡易並在組件被銷毁時能自動清除的 <code>setInterval()</code> 方法.</p>
 <figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> SetIntervalMixin = &#123;</span><br><span class="line">  componentWillMount: <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.intervals = [];</span><br><span class="line">  &#125;,</span><br><span class="line">  setInterval: <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.intervals.push(setInterval.apply(<span class="literal">null</span>, arguments));</span><br><span class="line">  &#125;,</span><br><span class="line">  componentWillUnmount: <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.intervals.map(clearInterval);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> TickTock = React.createClass(&#123;</span><br><span class="line">  mixins: [SetIntervalMixin], <span class="comment">// Use the mixin</span></span><br><span class="line">  getInitialState: <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;seconds: <span class="number">0</span>&#125;;</span><br><span class="line">  &#125;,</span><br><span class="line">  componentDidMount: <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.setInterval(<span class="keyword">this</span>.tick, <span class="number">1000</span>); <span class="comment">// Call a method on the mixin</span></span><br><span class="line">  &#125;,</span><br><span class="line">  tick: <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.setState(&#123;seconds: <span class="keyword">this</span>.state.seconds + <span class="number">1</span>&#125;);</span><br><span class="line">  &#125;,</span><br><span class="line">  render: <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      &lt;p&gt;</span><br><span class="line">        React has been running <span class="keyword">for</span> &#123;<span class="keyword">this</span>.state.seconds&#125; seconds.</span><br><span class="line">      &lt;/p&gt;</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">React.render(</span><br><span class="line">  &lt;TickTock /&gt;,</span><br><span class="line">  document.getElementById(<span class="string">'example'</span>)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
 <p><code>Mixins</code> 有一個很棒的特色就是如果一個組件同時使用數個 mixins 而那些又同時定義了相同的 lifecyle method (例如這幾個 mixins 都同時在組件銷毁時做了一些清除動作), 所有的 lifecyle methods 都會確保有被呼叫. Mixins 的執行會依據你在 <code>mixins</code> 屬性定義的先後順序.</p>
-
+</span>
       
     </div>
 
-    <div class="post-footer">
+    <footer class="post-footer">
       
         <div class="post-tags">
           
-            <a href="/tags/React-js/"> #React.js </a>
+            <a href="/hexo-blog/tags/React-js/" rel="tag">#React.js</a>
           
-            <a href="/tags/javascript/"> #javascript </a>
+            <a href="/hexo-blog/tags/javascript/" rel="tag">#javascript</a>
           
         </div>
       
@@ -202,13 +214,13 @@
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/07/08/Reading-list-for-Typography/">Reading list for Typography</a>
+              <a href="/hexo-blog/2015/07/08/Reading-list-for-Typography/" rel="prev">Reading list for Typography</a>
             
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/07/07/React-Day-4-Multiple-Components/">React Day 4 - Multiple Components</a>
+              <a href="/hexo-blog/2015/07/07/React-Day-4-Multiple-Components/" rel="next">React Day 4 - Multiple Components</a>
             
           </div>
         </div>
@@ -216,30 +228,29 @@
 
       
       
-    </div>
-  </div>
+    </footer>
+  </article>
 
 
 
     <div class="post-spread">
       
     </div>
-
-    
-      <div class="comments" id="comments">
-        
-      </div>
-    
   </div>
 
 
+            </div>
+
+            
+
+            
+              <div class="comments" id="comments">
+                
+              </div>
+            
         </div>
 
         
-      </div>
-
-
-      
   
   <div class="sidebar-toggle">
     <div class="sidebar-toggle-line-wrap">
@@ -249,12 +260,12 @@
     </div>
   </div>
 
-  <div id="sidebar" class="sidebar">
+  <aside id="sidebar" class="sidebar">
     <div class="sidebar-inner">
 
       
         <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
             文章目錄
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview">
@@ -263,13 +274,13 @@
         </ul>
       
 
-      <div class="site-overview">
-        <div class="site-author motion-element">
-          <img class="site-author-image" src="/images/default_avatar.jpg" alt="Starck Lin" />
-          <p class="site-author-name">Starck Lin</p>
+      <section class="site-overview">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" src="/hexo-blog/images/default_avatar.jpg" alt="Starck Lin" itemprop="image"/>
+          <p class="site-author-name" itemprop="name">Starck Lin</p>
         </div>
-        <p class="site-description motion-element"></p>
-        <div class="site-state motion-element">
+        <p class="site-description motion-element" itemprop="description"></p>
+        <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
               <span class="site-state-item-count">15</span>
@@ -291,7 +302,7 @@
               </a>
           </div>
 
-        </div>
+        </nav>
 
         
 
@@ -305,11 +316,11 @@
         <div class="links-of-author motion-element">
           
         </div>
-        
-      </div>
+
+      </section>
 
       
-        <div class="post-toc-wrap sidebar-panel-active">
+        <section class="post-toc-wrap sidebar-panel-active">
           <div class="post-toc-indicator-top post-toc-indicator"></div>
           <div class="post-toc">
             
@@ -318,25 +329,25 @@
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
-        </div>
+        </section>
       
 
     </div>
-  </div>
+  </aside>
 
 
-    </div>
+    </main>
 
-    <div id="footer" class="footer">
-      <div class="footer-inner">
-        <div class="copyright">
+    <footer id="footer" class="footer">
+        <div class="footer-inner">
+            <div class="copyright" >
   
   &copy; &nbsp; 
-  2015
+  <span itemprop="copyrightYear">2015</span>
   <span class="with-love">
     <i class="icon-heart"></i>
   </span>
-  <span class="author">Starck Lin</span>
+  <span class="author" itemprop="copyrightHolder">Starck Lin</span>
 </div>
 
 <div class="powered-by">
@@ -352,37 +363,44 @@
 
 
 
-      </div>
-    </div>
+        </div>
+    </footer>
 
     <div class="back-to-top"></div>
-  </div>
+</div>
 
-  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
-
-  
-  
-
-  
-  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
-  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.3"></script>
-
-
-  <script type="text/javascript" src="/js/helpers.js?v=0.4.3"></script>
-  
-
-  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
-  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
-
-  <script type="text/javascript" src="/js/motion_global.js?v=0.4.3" id="motion.global"></script>
-
-
-
-  <script type="text/javascript" src="/js/search-toggle.js"></script>
+<script type="text/javascript" src="/hexo-blog/vendors/jquery/index.js?v=2.1.3"></script>
 
   
   
-<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.3" id="bootstrap.scrollspy.custom"></script>
+  
+    
+    
+
+  
+
+
+  
+  
+  <script type="text/javascript" src="/hexo-blog/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/hexo-blog/js/fancy-box.js?v=0.4.4"></script>
+
+
+  <script type="text/javascript" src="/hexo-blog/js/helpers.js?v=0.4.4"></script>
+  
+
+  <script type="text/javascript" src="/hexo-blog/vendors/velocity/velocity.min.js"></script>
+  <script type="text/javascript" src="/hexo-blog/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/hexo-blog/js/motion_global.js?v=0.4.4" id="motion.global"></script>
+
+
+
+  <script type="text/javascript" src="/hexo-blog/js/search-toggle.js"></script>
+
+
+  
+<script type="text/javascript" src="/hexo-blog/js/bootstrap.scrollspy.js?v=0.4.4" id="bootstrap.scrollspy.custom"></script>
 
 
 <script type="text/javascript" id="sidebar.toc.highlight">
@@ -415,7 +433,6 @@
     }
 
     function getTOCMaxHeight () {
-      var $sidebarInner = $('.sidebar-inner');
       var height = $('.sidebar').height() -
                    $tocSelector.position().top -
                    $('.post-toc-indicator-bottom').height();
@@ -437,7 +454,7 @@
       )
     }
 
-    $(document).on('sidebar.didShow', function () {
+    $(document).on('sidebar.motion.complete', function () {
       processTOC();
     });
 
@@ -521,27 +538,30 @@
 
 
 
-  <script type="text/javascript">
+<script type="text/javascript">
     $(document).ready(function () {
-      if (CONFIG.sidebar === 'always') {
-        displaySidebar();
-      }
+        if (CONFIG.sidebar === 'always') {
+            displaySidebar();
+        }
     });
-  </script>
-
-  
-
-  
-  
-  
-
-  
+</script>
 
 
 
 
-  
-  
 
+
+
+
+<!-- lazyload -->
+<script type="text/javascript" src="/hexo-blog/js/lazyload.js"></script>
+<script type="text/javascript">
+    jQuery(function () {
+        jQuery("#posts img").lazyload({
+            placeholder: "/hexo-blog/images/loading.gif",
+            effect: "fadeIn"
+        });
+    });
+</script>
 </body>
 </html>

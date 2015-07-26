@@ -1,25 +1,29 @@
 <!doctype html>
 <html class="theme-next use-motion theme-next-mist">
 <head>
-  
+    
 
 <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
 
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
 
 
 
 
-  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
+
+
+  <link rel="stylesheet" type="text/css" href="/hexo-blog/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
 
 
 
-  <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+  <link href='//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
 
 
-<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.3"/>
+<link rel="stylesheet" type="text/css" href="/hexo-blog/css/main.css?v=0.4.4"/>
 
 
 
@@ -30,28 +34,31 @@
 
 
 
-  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.3" />
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.4" />
 
+
+<meta name="description">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Starck Lin">
+<meta property="og:url" content="http://zmax.github.io/page/2/index.html">
+<meta property="og:site_name" content="Starck Lin">
+<meta property="og:description">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Starck Lin">
+<meta name="twitter:description">
 
 
 <script type="text/javascript" id="hexo.configuration">
   var CONFIG = {
     scheme: 'Mist',
-    analytics: {
-      google: ''
-    },
     sidebar: 'post'
   };
 </script>
 
-
-
-
-  <title> Starck Lin </title>
+    <title> Starck Lin </title>
 </head>
-
-<body>
-  <!--[if lte IE 8]>
+<body itemscope itemtype="http://schema.org/WebPage" lang="">
+<!--[if lte IE 8]>
   <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
     <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
       <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
@@ -61,16 +68,17 @@
   </div>
 <![endif]-->
 
-  <div class="container one-column 
+
+
+
+<div class="container one-column 
    page-home 
 ">
     <div class="headband"></div>
-
-    <div id="header" class="header">
-      <div class="header-inner">
-        <h1 class="site-meta">
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+        <div class="header-inner"><h1 class="site-meta">
   <span class="logo-line-before"><i></i></span>
-  <a href="/" class="brand">
+  <a href="/hexo-blog/" class="brand" rel="start">
       <span class="logo">
         <i class="icon-logo"></i>
       </span>
@@ -87,7 +95,7 @@
   </button>
 </div>
 
-<div class="site-nav">
+<nav class="site-nav">
   
 
   
@@ -95,7 +103,7 @@
       
         
         <li class="menu-item menu-item-home">
-          <a href="/">
+          <a href="/" rel="section">
             <i class="menu-item-icon icon-home"></i> <br />
             首頁
           </a>
@@ -103,7 +111,7 @@
       
         
         <li class="menu-item menu-item-archives">
-          <a href="/archives">
+          <a href="/archives" rel="section">
             <i class="menu-item-icon icon-archives"></i> <br />
             歸檔
           </a>
@@ -111,7 +119,7 @@
       
         
         <li class="menu-item menu-item-tags">
-          <a href="/tags">
+          <a href="/tags" rel="section">
             <i class="menu-item-icon icon-tags"></i> <br />
             標籤
           </a>
@@ -121,29 +129,29 @@
   
 
   
-</div>
+</nav>
 
 
-      </div>
-    </div>
+        </div>
+    </header>
 
-    <div id="main" class="main">
-      <div class="main-inner">
-        <div id="content" class="content">
-          
-  <div id="posts" class="posts-expand">
+    <main id="main" class="main">
+        <div class="main-inner">
+            <div id="content" class="content">
+                
+  <section id="posts" class="posts-expand">
     
       
 
-  <div class="post post-type-normal ">
-    <div class="post-header">
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
 
       
       
-        <h1 class="post-title">
+        <h1 class="post-title" itemprop="name headline">
           
           
-            <a class="post-title-link post-title-link-external" target="_blank" href="http://google.com">
+            <a class="post-title-link post-title-link-external" target="_blank" href="http://google.com" itemprop="url">
               link-test
               <i class="icon-external-link"></i>
             </a>
@@ -153,7 +161,10 @@
 
       <div class="post-meta">
         <span class="post-time">
-          發表於 2015-07-01
+          發表於
+          <time itemprop="dateCreated" datetime="2015-07-01T07:05:45+08:00" content="2015-07-01">
+            2015-07-01
+          </time>
         </span>
 
         
@@ -162,7 +173,7 @@
           
         
       </div>
-    </div>
+    </header>
 
     <div class="post-body">
 
@@ -171,15 +182,15 @@
 
       
         
-          <blockquote>
+          <span itemprop="articleBody"><blockquote>
 <p>Hello</p>
 </blockquote>
-
+</span>
         
       
     </div>
 
-    <div class="post-footer">
+    <footer class="post-footer">
       
 
       
@@ -188,23 +199,23 @@
       
         <div class="post-eof"></div>
       
-    </div>
-  </div>
+    </footer>
+  </article>
 
 
     
       
 
-  <div class="post post-type-normal ">
-    <div class="post-header">
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
 
       
       
-        <h1 class="post-title">
+        <h1 class="post-title" itemprop="name headline">
           
           
             
-              <a class="post-title-link" href="/2015/05/16/dokku-is-a-wonderful-tool-for-quickly-deploying-apps-to-production/">
+              <a class="post-title-link" href="/hexo-blog/2015/05/16/dokku-is-a-wonderful-tool-for-quickly-deploying-apps-to-production/" itemprop="url">
                 利用 Dokku 建構快速步署應用程式
               </a>
             
@@ -214,7 +225,10 @@
 
       <div class="post-meta">
         <span class="post-time">
-          發表於 2015-05-16
+          發表於
+          <time itemprop="dateCreated" datetime="2015-05-16T06:49:16+08:00" content="2015-05-16">
+            2015-05-16
+          </time>
         </span>
 
         
@@ -223,7 +237,7 @@
           
         
       </div>
-    </div>
+    </header>
 
     <div class="post-body">
 
@@ -232,7 +246,7 @@
 
       
         
-          <h2 id="Dokku">Dokku</h2><p>讓你建置類似像 Heroku 的服務，可至<a href="https://github.com/progrium/dokku" target="_blank" rel="external">官方 Github</a>了解更多資訊。</p>
+          <span itemprop="articleBody"><h2 id="Dokku">Dokku</h2><p>讓你建置類似像 Heroku 的服務，可至<a href="https://github.com/progrium/dokku" target="_blank" rel="external">官方 Github</a>了解更多資訊。</p>
 <h3 id="Installation">Installation</h3><figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor"># wget https://raw.github.com/progrium/dokku/v0.3.17/bootstrap.sh</span></span><br><span class="line"><span class="preprocessor"># sudo DOKKU_TAG=v0.3.17 bash bootstrap.sh</span></span><br><span class="line"></span><br><span class="line"><span class="preprocessor"># installs dokku via apt-get</span></span><br><span class="line">wget -qO- https:<span class="comment">//raw.github.com/progrium/dokku/v0.3.17/bootstrap.sh | sudo DOKKU_TAG=v0.3.17 bash</span></span><br><span class="line"></span><br><span class="line"><span class="preprocessor"># Go to your server's IP and follow the web installer</span></span><br></pre></td></tr></table></figure>
 <h2 id="Dokku-alt">Dokku-alt</h2><p>基於 <a href="https://github.com/progrium/dokku" target="_blank" rel="external">Dokku</a> 發展的套包，集合了一些常用的 Plugins，像是 MariaDB, Redis, ACL … 等。</p>
 <h3 id="Installation-1">Installation</h3><figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="label">sudo</span> <span class="keyword">bash </span>-c <span class="string">"$(curl -fsSL https://raw.githubusercontent.com/dokku-alt/dokku-alt/master/bootstrap.sh)"</span></span><br></pre></td></tr></table></figure>
@@ -255,12 +269,12 @@
 <li><a href="http://stackoverflow.com/questions/17394241/my-firewall-is-blocking-network-connections-from-the-docker-container-to-outside" target="_blank" rel="external">My firewall is blocking network connections from the docker container to outside</a></li>
 <li><a href="https://www.linode.com/docs/tools-reference/custom-kernels-distros/run-a-distributionsupplied-kernel-with-pvgrub" target="_blank" rel="external">原本以為是 Linode 自定義 Kernel 的問題</a></li>
 </ul>
-
+</span>
         
       
     </div>
 
-    <div class="post-footer">
+    <footer class="post-footer">
       
 
       
@@ -269,23 +283,23 @@
       
         <div class="post-eof"></div>
       
-    </div>
-  </div>
+    </footer>
+  </article>
 
 
     
       
 
-  <div class="post post-type-normal ">
-    <div class="post-header">
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
 
       
       
-        <h1 class="post-title">
+        <h1 class="post-title" itemprop="name headline">
           
           
             
-              <a class="post-title-link" href="/2015/02/18/Gulp-with-webpack/">
+              <a class="post-title-link" href="/hexo-blog/2015/02/18/Gulp-with-webpack/" itemprop="url">
                 Gulp with webpack
               </a>
             
@@ -295,7 +309,10 @@
 
       <div class="post-meta">
         <span class="post-time">
-          發表於 2015-02-18
+          發表於
+          <time itemprop="dateCreated" datetime="2015-02-18T14:36:56+08:00" content="2015-02-18">
+            2015-02-18
+          </time>
         </span>
 
         
@@ -304,7 +321,7 @@
           
         
       </div>
-    </div>
+    </header>
 
     <div class="post-body">
 
@@ -313,14 +330,14 @@
 
       
         
-          <h2 id="Gulp_with_webpack">Gulp with webpack</h2><h5 id="gulpfile-js">gulpfile.js</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> gulp = <span class="built_in">require</span>(<span class="string">'gulp'</span>);</span><br><span class="line"><span class="keyword">var</span> webpack = <span class="built_in">require</span>(<span class="string">'gulp-webpack'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> dist = <span class="string">'public'</span>;</span><br><span class="line"></span><br><span class="line">gulp.task(<span class="string">'default'</span>, [<span class="string">'webpack'</span>]);</span><br><span class="line"></span><br><span class="line">gulp.task(<span class="string">'webpack'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> gulp.src(<span class="string">'app/index.js'</span>)</span><br><span class="line">        .pipe(webpack(<span class="built_in">require</span>(<span class="string">'./webpack.config.js'</span>)))</span><br><span class="line">        .pipe(gulp.dest(dist+<span class="string">'/js'</span>));</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+          <span itemprop="articleBody"><h2 id="Gulp_with_webpack">Gulp with webpack</h2><h5 id="gulpfile-js">gulpfile.js</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> gulp = <span class="built_in">require</span>(<span class="string">'gulp'</span>);</span><br><span class="line"><span class="keyword">var</span> webpack = <span class="built_in">require</span>(<span class="string">'gulp-webpack'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> dist = <span class="string">'public'</span>;</span><br><span class="line"></span><br><span class="line">gulp.task(<span class="string">'default'</span>, [<span class="string">'webpack'</span>]);</span><br><span class="line"></span><br><span class="line">gulp.task(<span class="string">'webpack'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> gulp.src(<span class="string">'app/index.js'</span>)</span><br><span class="line">        .pipe(webpack(<span class="built_in">require</span>(<span class="string">'./webpack.config.js'</span>)))</span><br><span class="line">        .pipe(gulp.dest(dist+<span class="string">'/js'</span>));</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 <h5 id="webpack-config-js">webpack.config.js</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> webpack = <span class="built_in">require</span>(<span class="string">'webpack'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> dist = <span class="string">'/public'</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line"></span><br><span class="line">    watch: <span class="literal">true</span>,</span><br><span class="line"></span><br><span class="line">    context: __dirname + <span class="string">"/app"</span>,</span><br><span class="line"></span><br><span class="line">    entry: &#123;</span><br><span class="line">        <span class="comment">// main script</span></span><br><span class="line">        app: <span class="string">'./index'</span>,</span><br><span class="line">        <span class="comment">// common scripts</span></span><br><span class="line">        common: <span class="string">'vendor/commons'</span></span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    output: &#123;</span><br><span class="line">        path: __dirname + dist + <span class="string">"/js"</span>,</span><br><span class="line">        filename: <span class="string">"[name].bundle.js"</span>,</span><br><span class="line">        chunkFilename: <span class="string">"[name].bundle.js"</span>,</span><br><span class="line">        publicPath: <span class="string">"js/"</span></span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    <span class="built_in">module</span>: &#123;</span><br><span class="line">        loaders: [</span><br><span class="line">            &#123; test: <span class="regexp">/\.js$/</span>, loader: <span class="string">'jsx-loader?harmony'</span> &#125;,</span><br><span class="line">            &#123; test: <span class="regexp">/\.jsx$/</span>, loader: <span class="string">'jsx-loader?harmony'</span> &#125;,</span><br><span class="line">            &#123; test: <span class="regexp">/\.less$/</span>, loader: <span class="string">'style-loader!css-loader!less-loader'</span> &#125;, <span class="comment">// use ! to chain loaders</span></span><br><span class="line">            &#123; test: <span class="regexp">/\.css$/</span>, loader: <span class="string">'style-loader!css-loader'</span> &#125;,</span><br><span class="line">            &#123; test: <span class="regexp">/\.woff(\?v=\d+\.\d+\.\d+)?$/</span>,   loader: <span class="string">"url?limit=10000&amp;minetype=application/font-woff&amp;name=../fonts/[hash].woff"</span> &#125;,</span><br><span class="line">            &#123; test: <span class="regexp">/\.ttf(\?v=\d+\.\d+\.\d+)?$/</span>,    loader: <span class="string">"url?limit=10000&amp;minetype=application/octet-stream&amp;name=../fonts/[hash].ttf"</span> &#125;,</span><br><span class="line">            &#123; test: <span class="regexp">/\.eot(\?v=\d+\.\d+\.\d+)?$/</span>,    loader: <span class="string">"file?name=../fonts/[hash].eot"</span> &#125;,</span><br><span class="line">            &#123; test: <span class="regexp">/\.svg(\?v=\d+\.\d+\.\d+)?$/</span>,    loader: <span class="string">"url?limit=10000&amp;minetype=image/svg+xml&amp;name=../fonts/[hash].svg"</span> &#125;</span><br><span class="line">        ]</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    plugins: [</span><br><span class="line">        <span class="keyword">new</span> webpack.PrefetchPlugin(<span class="string">"react"</span>),</span><br><span class="line">        <span class="keyword">new</span> webpack.PrefetchPlugin(<span class="string">"react/lib/ReactComponentBrowserEnvironment"</span>),</span><br><span class="line">        <span class="comment">// new webpack.optimize.CommonsChunkPlugin("init.js"),</span></span><br><span class="line">        <span class="keyword">new</span> webpack.optimize.CommonsChunkPlugin(<span class="string">"common"</span>, <span class="string">"common.bundle.js"</span>),</span><br><span class="line">        <span class="keyword">new</span> webpack.ProvidePlugin(&#123;</span><br><span class="line">            $: <span class="string">"vendor/jquery"</span>,</span><br><span class="line">            jQuery: <span class="string">"vendor/jquery"</span>,</span><br><span class="line">            <span class="comment">// "windows.jQuery": "vendor/jquery",</span></span><br><span class="line">            <span class="comment">// "window.React": "react",</span></span><br><span class="line">            React: <span class="string">"react"</span>,</span><br><span class="line">            Backbone: <span class="string">"backbone"</span></span><br><span class="line">        &#125;)</span><br><span class="line">    ],</span><br><span class="line"></span><br><span class="line">    resolve: &#123;</span><br><span class="line">        alias: &#123;</span><br><span class="line">            components: __dirname + <span class="string">'/app/components'</span>,</span><br><span class="line">            actions: __dirname + <span class="string">'/app/actions'</span>,</span><br><span class="line">            stores: __dirname + <span class="string">'/app/stores'</span>,</span><br><span class="line">            contracts: __dirname + <span class="string">'/app/contracts'</span>,</span><br><span class="line">            lib: __dirname + <span class="string">'/app/lib'</span>,</span><br><span class="line">            app: __dirname + <span class="string">'/app'</span>,</span><br><span class="line">            modules: __dirname + <span class="string">'/app/modules'</span>,</span><br><span class="line">            vendor: __dirname + <span class="string">'/app/vendor'</span>,</span><br><span class="line">            node_modules: __dirname + <span class="string">'/node_modules'</span>,</span><br><span class="line">            jquery: __dirname + <span class="string">'/app/vendor/jquery'</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
+</span>
         
       
     </div>
 
-    <div class="post-footer">
+    <footer class="post-footer">
       
 
       
@@ -329,23 +346,23 @@
       
         <div class="post-eof"></div>
       
-    </div>
-  </div>
+    </footer>
+  </article>
 
 
     
       
 
-  <div class="post post-type-normal ">
-    <div class="post-header">
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
 
       
       
-        <h1 class="post-title">
+        <h1 class="post-title" itemprop="name headline">
           
           
             
-              <a class="post-title-link" href="/2015/02/18/Atom-Editor/">
+              <a class="post-title-link" href="/hexo-blog/2015/02/18/Atom-Editor/" itemprop="url">
                 Atom Editor
               </a>
             
@@ -355,7 +372,10 @@
 
       <div class="post-meta">
         <span class="post-time">
-          發表於 2015-02-18
+          發表於
+          <time itemprop="dateCreated" datetime="2015-02-18T14:36:47+08:00" content="2015-02-18">
+            2015-02-18
+          </time>
         </span>
 
         
@@ -364,7 +384,7 @@
           
         
       </div>
-    </div>
+    </header>
 
     <div class="post-body">
 
@@ -373,7 +393,7 @@
 
       
         
-          <h2 id="Atom_Package">Atom Package</h2><ul>
+          <span itemprop="articleBody"><h2 id="Atom_Package">Atom Package</h2><ul>
 <li>project-manager</li>
 <li>atom-terminal</li>
 <li>autocomplete-plus</li>
@@ -386,12 +406,12 @@
 </ul>
 <h2 id="Atom_Keymaps">Atom Keymaps</h2><p>Jump to sympol define:</p>
 <p><code>Alt</code> + <code>Cmd</code> + <code>up</code> / <code>down</code></p>
-
+</span>
         
       
     </div>
 
-    <div class="post-footer">
+    <footer class="post-footer">
       
 
       
@@ -400,23 +420,23 @@
       
         <div class="post-eof"></div>
       
-    </div>
-  </div>
+    </footer>
+  </article>
 
 
     
       
 
-  <div class="post post-type-normal ">
-    <div class="post-header">
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
 
       
       
-        <h1 class="post-title">
+        <h1 class="post-title" itemprop="name headline">
           
           
             
-              <a class="post-title-link" href="/2015/02/18/How-to-speak-so-that-people-want-to-listen/">
+              <a class="post-title-link" href="/hexo-blog/2015/02/18/How-to-speak-so-that-people-want-to-listen/" itemprop="url">
                 How to speak so that people want to listen
               </a>
             
@@ -426,7 +446,10 @@
 
       <div class="post-meta">
         <span class="post-time">
-          發表於 2015-02-18
+          發表於
+          <time itemprop="dateCreated" datetime="2015-02-18T14:36:35+08:00" content="2015-02-18">
+            2015-02-18
+          </time>
         </span>
 
         
@@ -435,7 +458,7 @@
           
         
       </div>
-    </div>
+    </header>
 
     <div class="post-body">
 
@@ -444,7 +467,7 @@
 
       
         
-          <iframe src="https://embed-ssl.ted.com/talks/julian_treasure_how_to_speak_so_that_people_want_to_listen.html" width="854" height="480" frameborder="0" scrolling="no" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen></iframe>
+          <span itemprop="articleBody"><iframe src="https://embed-ssl.ted.com/talks/julian_treasure_how_to_speak_so_that_people_want_to_listen.html" width="854" height="480" frameborder="0" scrolling="no" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen></iframe>
 
 
 <p>講話應避免的七個過失:</p>
@@ -473,12 +496,12 @@
 <p>represent; mean;</p>
 <p>to make change in the world</p>
 <p>Fantastic, give yourselves a round of applause.</p>
-
+</span>
         
       
     </div>
 
-    <div class="post-footer">
+    <footer class="post-footer">
       
 
       
@@ -487,26 +510,27 @@
       
         <div class="post-eof"></div>
       
-    </div>
-  </div>
+    </footer>
+  </article>
 
 
     
-  </div>
+  </section>
 
   
-  <div class="pagination">
+  <nav class="pagination">
     <a class="extend prev" rel="prev" href="/">&laquo;</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
-  </div>
+  </nav>
 
 
+            </div>
+
+            
+
+            
         </div>
 
         
-      </div>
-
-
-      
   
   <div class="sidebar-toggle">
     <div class="sidebar-toggle-line-wrap">
@@ -516,18 +540,18 @@
     </div>
   </div>
 
-  <div id="sidebar" class="sidebar">
+  <aside id="sidebar" class="sidebar">
     <div class="sidebar-inner">
 
       
 
-      <div class="site-overview">
-        <div class="site-author motion-element">
-          <img class="site-author-image" src="/images/default_avatar.jpg" alt="Starck Lin" />
-          <p class="site-author-name">Starck Lin</p>
+      <section class="site-overview">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" src="/hexo-blog/images/default_avatar.jpg" alt="Starck Lin" itemprop="image"/>
+          <p class="site-author-name" itemprop="name">Starck Lin</p>
         </div>
-        <p class="site-description motion-element"></p>
-        <div class="site-state motion-element">
+        <p class="site-description motion-element" itemprop="description"></p>
+        <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
               <span class="site-state-item-count">15</span>
@@ -549,7 +573,7 @@
               </a>
           </div>
 
-        </div>
+        </nav>
 
         
 
@@ -563,27 +587,27 @@
         <div class="links-of-author motion-element">
           
         </div>
-        
-      </div>
+
+      </section>
 
       
 
     </div>
-  </div>
+  </aside>
 
 
-    </div>
+    </main>
 
-    <div id="footer" class="footer">
-      <div class="footer-inner">
-        <div class="copyright">
+    <footer id="footer" class="footer">
+        <div class="footer-inner">
+            <div class="copyright" >
   
   &copy; &nbsp; 
-  2015
+  <span itemprop="copyrightYear">2015</span>
   <span class="with-love">
     <i class="icon-heart"></i>
   </span>
-  <span class="author">Starck Lin</span>
+  <span class="author" itemprop="copyrightHolder">Starck Lin</span>
 </div>
 
 <div class="powered-by">
@@ -599,51 +623,50 @@
 
 
 
-      </div>
-    </div>
+        </div>
+    </footer>
 
     <div class="back-to-top"></div>
-  </div>
+</div>
 
-  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+<script type="text/javascript" src="/hexo-blog/vendors/jquery/index.js?v=2.1.3"></script>
 
+  
+  
+  
   
   
 
   
-  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
-  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.3"></script>
 
 
-  <script type="text/javascript" src="/js/helpers.js?v=0.4.3"></script>
-  
-
-  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
-  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
-
-  <script type="text/javascript" src="/js/motion_global.js?v=0.4.3" id="motion.global"></script>
-
-
-
-  <script type="text/javascript" src="/js/search-toggle.js"></script>
 
   
+  <script type="text/javascript" src="/hexo-blog/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/hexo-blog/js/fancy-box.js?v=0.4.4"></script>
 
-  <script type="text/javascript">
+
+  <script type="text/javascript" src="/hexo-blog/js/helpers.js?v=0.4.4"></script>
+  
+
+  <script type="text/javascript" src="/hexo-blog/vendors/velocity/velocity.min.js"></script>
+  <script type="text/javascript" src="/hexo-blog/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/hexo-blog/js/motion_global.js?v=0.4.4" id="motion.global"></script>
+
+
+
+  <script type="text/javascript" src="/hexo-blog/js/search-toggle.js"></script>
+
+
+
+<script type="text/javascript">
     $(document).ready(function () {
-      if (CONFIG.sidebar === 'always') {
-        displaySidebar();
-      }
+        if (CONFIG.sidebar === 'always') {
+            displaySidebar();
+        }
     });
-  </script>
-
-  
-
-  
-  
-  
-
-  
+</script>
 
 
 
@@ -651,5 +674,23 @@
   
   
 
+  
+
+
+
+
+
+
+
+<!-- lazyload -->
+<script type="text/javascript" src="/hexo-blog/js/lazyload.js"></script>
+<script type="text/javascript">
+    jQuery(function () {
+        jQuery("#posts img").lazyload({
+            placeholder: "/hexo-blog/images/loading.gif",
+            effect: "fadeIn"
+        });
+    });
+</script>
 </body>
 </html>

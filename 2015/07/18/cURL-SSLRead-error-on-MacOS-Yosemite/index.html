@@ -1,25 +1,29 @@
 <!doctype html>
 <html class="theme-next use-motion theme-next-mist">
 <head>
-  
+    
 
 <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
 
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
 
 
 
 
-  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
+
+
+  <link rel="stylesheet" type="text/css" href="/hexo-blog/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
 
 
 
-  <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+  <link href='//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
 
 
-<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.3"/>
+<link rel="stylesheet" type="text/css" href="/hexo-blog/css/main.css?v=0.4.4"/>
 
 
 
@@ -30,28 +34,41 @@
 
 
 
-  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.3" />
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.4" />
 
+
+<meta name="description" content="檢查目前 PHP 是用什麼 SSL 版本php -i | grep &amp;quot;SSL Version&amp;quot;
+如果結果如下:1SSL Version =&amp;gt; SecureTransport
+重新安裝 PHP12brew uninstall php55brew install --with-homebrew-curl --with-homebrew-openssl php55
+再重覆第一步">
+<meta property="og:type" content="article">
+<meta property="og:title" content="cURL SSLRead() error on MacOS Yosemite">
+<meta property="og:url" content="http://zmax.github.io/2015/07/18/cURL-SSLRead-error-on-MacOS-Yosemite/index.html">
+<meta property="og:site_name" content="Starck Lin">
+<meta property="og:description" content="檢查目前 PHP 是用什麼 SSL 版本php -i | grep &amp;quot;SSL Version&amp;quot;
+如果結果如下:1SSL Version =&amp;gt; SecureTransport
+重新安裝 PHP12brew uninstall php55brew install --with-homebrew-curl --with-homebrew-openssl php55
+再重覆第一步">
+<meta property="og:updated_time" content="2015-07-18T17:25:33.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="cURL SSLRead() error on MacOS Yosemite">
+<meta name="twitter:description" content="檢查目前 PHP 是用什麼 SSL 版本php -i | grep &amp;quot;SSL Version&amp;quot;
+如果結果如下:1SSL Version =&amp;gt; SecureTransport
+重新安裝 PHP12brew uninstall php55brew install --with-homebrew-curl --with-homebrew-openssl php55
+再重覆第一步">
 
 
 <script type="text/javascript" id="hexo.configuration">
   var CONFIG = {
     scheme: 'Mist',
-    analytics: {
-      google: ''
-    },
     sidebar: 'post'
   };
 </script>
 
-
-
-
-  <title> cURL SSLRead() error on MacOS Yosemite // Starck Lin </title>
+    <title> cURL SSLRead() error on MacOS Yosemite // Starck Lin </title>
 </head>
-
-<body>
-  <!--[if lte IE 8]>
+<body itemscope itemtype="http://schema.org/WebPage" lang="">
+<!--[if lte IE 8]>
   <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
     <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
       <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
@@ -61,14 +78,15 @@
   </div>
 <![endif]-->
 
-  <div class="container one-column page-post-detail">
-    <div class="headband"></div>
 
-    <div id="header" class="header">
-      <div class="header-inner">
-        <h1 class="site-meta">
+
+
+<div class="container one-column page-post-detail">
+    <div class="headband"></div>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+        <div class="header-inner"><h1 class="site-meta">
   <span class="logo-line-before"><i></i></span>
-  <a href="/" class="brand">
+  <a href="/hexo-blog/" class="brand" rel="start">
       <span class="logo">
         <i class="icon-logo"></i>
       </span>
@@ -85,7 +103,7 @@
   </button>
 </div>
 
-<div class="site-nav">
+<nav class="site-nav">
   
 
   
@@ -93,7 +111,7 @@
       
         
         <li class="menu-item menu-item-home">
-          <a href="/">
+          <a href="/" rel="section">
             <i class="menu-item-icon icon-home"></i> <br />
             首頁
           </a>
@@ -101,7 +119,7 @@
       
         
         <li class="menu-item menu-item-archives">
-          <a href="/archives">
+          <a href="/archives" rel="section">
             <i class="menu-item-icon icon-archives"></i> <br />
             歸檔
           </a>
@@ -109,7 +127,7 @@
       
         
         <li class="menu-item menu-item-tags">
-          <a href="/tags">
+          <a href="/tags" rel="section">
             <i class="menu-item-icon icon-tags"></i> <br />
             標籤
           </a>
@@ -119,26 +137,26 @@
   
 
   
-</div>
+</nav>
 
 
-      </div>
-    </div>
+        </div>
+    </header>
 
-    <div id="main" class="main">
-      <div class="main-inner">
-        <div id="content" class="content">
-          
+    <main id="main" class="main">
+        <div class="main-inner">
+            <div id="content" class="content">
+                
 
   <div id="posts" class="posts-expand">
     
 
-  <div class="post post-type-normal ">
-    <div class="post-header">
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
 
       
       
-        <h1 class="post-title">
+        <h1 class="post-title" itemprop="name headline">
           
           
             
@@ -150,7 +168,10 @@
 
       <div class="post-meta">
         <span class="post-time">
-          發表於 2015-07-18
+          發表於
+          <time itemprop="dateCreated" datetime="2015-07-18T17:46:05+08:00" content="2015-07-18">
+            2015-07-18
+          </time>
         </span>
 
         
@@ -159,7 +180,7 @@
           
         
       </div>
-    </div>
+    </header>
 
     <div class="post-body">
 
@@ -167,7 +188,7 @@
       
 
       
-        <p>檢查目前 PHP 是用什麼 SSL 版本<br><code>php -i | grep &quot;SSL Version&quot;</code></p>
+        <span itemprop="articleBody"><p>檢查目前 PHP 是用什麼 SSL 版本<br><code>php -i | grep &quot;SSL Version&quot;</code></p>
 <p>如果結果如下:<br><figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SSL Version =&gt; SecureTransport</span><br></pre></td></tr></table></figure></p>
 <p>重新安裝 PHP<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">brew <span class="operator"><span class="keyword">uninstall</span> php55</span><br><span class="line">brew <span class="keyword">install</span> <span class="comment">--with-homebrew-curl --with-homebrew-openssl php55</span></span></span><br></pre></td></tr></table></figure></p>
 <p>再重覆第一步驟檢查 SSL 版本:</p>
@@ -177,19 +198,19 @@
 <hr>
 
 <figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line">To enable PHP <span class="keyword">in</span> Apache add <span class="keyword">the</span> following <span class="keyword">to</span> httpd.conf <span class="keyword">and</span> restart Apache:</span><br><span class="line">    LoadModule php5_module    /usr/<span class="keyword">local</span>/opt/php55/libexec/apache2/libphp5.so</span><br><span class="line"></span><br><span class="line">The php.ini <span class="type">file</span> can be found <span class="keyword">in</span>:</span><br><span class="line">    /usr/<span class="keyword">local</span>/etc/php/<span class="number">5.5</span>/php.ini</span><br><span class="line"></span><br><span class="line">✩✩✩✩ PEAR ✩✩✩✩</span><br><span class="line"></span><br><span class="line">If PEAR complains <span class="keyword">about</span> permissions, 'fix' <span class="keyword">the</span> default PEAR permissions <span class="keyword">and</span> config:</span><br><span class="line">    chmod -R ug+w /usr/<span class="keyword">local</span>/Cellar/php55/<span class="number">5.5</span>.27_2/lib/php</span><br><span class="line">    pear config-<span class="keyword">set</span> php_ini /usr/<span class="keyword">local</span>/etc/php/<span class="number">5.5</span>/php.ini system</span><br><span class="line"></span><br><span class="line">✩✩✩✩ Extensions ✩✩✩✩</span><br><span class="line"></span><br><span class="line">If you are having issues <span class="keyword">with</span> custom extension compiling, ensure <span class="keyword">that</span></span><br><span class="line">you are using <span class="keyword">the</span> brew <span class="property">version</span>, <span class="keyword">by</span> placing /usr/<span class="keyword">local</span>/bin <span class="keyword">before</span> /usr/sbin <span class="keyword">in</span> your PATH:</span><br><span class="line"></span><br><span class="line">      PATH=<span class="string">"/usr/local/bin:$PATH"</span></span><br><span class="line"></span><br><span class="line">PHP55 Extensions will always be compiled <span class="keyword">against</span> this PHP. Please install them</span><br><span class="line">using <span class="comment">--without-homebrew-php to enable compiling against system PHP.</span></span><br><span class="line"></span><br><span class="line">✩✩✩✩ PHP CLI ✩✩✩✩</span><br><span class="line"></span><br><span class="line">If you wish <span class="keyword">to</span> swap <span class="keyword">the</span> PHP you use <span class="function_start"><span class="keyword">on</span></span> <span class="keyword">the</span> command line, you should add <span class="keyword">the</span> following <span class="keyword">to</span> ~/.bashrc,</span><br><span class="line">~/.zshrc, ~/.profile <span class="keyword">or</span> your shell's equivalent configuration <span class="type">file</span>:</span><br><span class="line"></span><br><span class="line">      export PATH=<span class="string">"$(brew --prefix homebrew/php/php55)/bin:$PATH"</span></span><br><span class="line"></span><br><span class="line">✩✩✩✩ FPM ✩✩✩✩</span><br><span class="line"></span><br><span class="line">To <span class="command">launch</span> php-fpm <span class="function_start"><span class="keyword">on</span></span> startup:</span><br><span class="line">    mkdir -p ~/Library/LaunchAgents</span><br><span class="line">    cp /usr/<span class="keyword">local</span>/opt/php55/homebrew.mxcl.php55.plist ~/Library/LaunchAgents/</span><br><span class="line">    launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.php55.plist</span><br><span class="line"></span><br><span class="line">The control <span class="keyword">script</span> <span class="keyword">is</span> located <span class="keyword">at</span> /usr/<span class="keyword">local</span>/opt/php55/sbin/php55-fpm</span><br><span class="line"></span><br><span class="line">OS X <span class="number">10.8</span> <span class="keyword">and</span> newer come <span class="keyword">with</span> php-fpm pre-installed, <span class="keyword">to</span> ensure you are using <span class="keyword">the</span> brew <span class="property">version</span> you need <span class="keyword">to</span> make sure /usr/<span class="keyword">local</span>/sbin <span class="keyword">is</span> <span class="keyword">before</span> /usr/sbin <span class="keyword">in</span> your PATH:</span><br><span class="line"></span><br><span class="line">  PATH=<span class="string">"/usr/local/sbin:$PATH"</span></span><br><span class="line"></span><br><span class="line">You may also need <span class="keyword">to</span> edit <span class="keyword">the</span> plist <span class="keyword">to</span> use <span class="keyword">the</span> correct <span class="string">"UserName"</span>.</span><br><span class="line"></span><br><span class="line">Please note <span class="keyword">that</span> <span class="keyword">the</span> plist was called 'homebrew-php.josegonzalez.php55.plist' <span class="keyword">in</span> old versions</span><br><span class="line"><span class="keyword">of</span> this formula.</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">To have launchd start homebrew/php/php55 <span class="keyword">at</span> login:</span><br><span class="line">    ln -sfv /usr/<span class="keyword">local</span>/opt/php55/*.plist ~/Library/LaunchAgents</span><br><span class="line">Then <span class="keyword">to</span> load homebrew/php/php55 now:</span><br><span class="line">    launchctl load ~/Library/LaunchAgents/homebrew.mxcl.php55.plist</span><br></pre></td></tr></table></figure>
-
+</span>
       
     </div>
 
-    <div class="post-footer">
+    <footer class="post-footer">
       
         <div class="post-tags">
           
-            <a href="/tags/MacOS/"> #MacOS </a>
+            <a href="/hexo-blog/tags/MacOS/" rel="tag">#MacOS</a>
           
-            <a href="/tags/SSL/"> #SSL </a>
+            <a href="/hexo-blog/tags/SSL/" rel="tag">#SSL</a>
           
-            <a href="/tags/cURL/"> #cURL </a>
+            <a href="/hexo-blog/tags/cURL/" rel="tag">#cURL</a>
           
         </div>
       
@@ -198,13 +219,13 @@
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/07/23/Testing-Your-Website-to-Check-If-It-is-Accessible-from-China/">Testing Your Website to Check If It is Accessible from China</a>
+              <a href="/hexo-blog/2015/07/23/Testing-Your-Website-to-Check-If-It-is-Accessible-from-China/" rel="prev">Testing Your Website to Check If It is Accessible from China</a>
             
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/07/08/Reading-list-for-Typography/">Reading list for Typography</a>
+              <a href="/hexo-blog/2015/07/08/Reading-list-for-Typography/" rel="next">Reading list for Typography</a>
             
           </div>
         </div>
@@ -212,30 +233,29 @@
 
       
       
-    </div>
-  </div>
+    </footer>
+  </article>
 
 
 
     <div class="post-spread">
       
     </div>
-
-    
-      <div class="comments" id="comments">
-        
-      </div>
-    
   </div>
 
 
+            </div>
+
+            
+
+            
+              <div class="comments" id="comments">
+                
+              </div>
+            
         </div>
 
         
-      </div>
-
-
-      
   
   <div class="sidebar-toggle">
     <div class="sidebar-toggle-line-wrap">
@@ -245,12 +265,12 @@
     </div>
   </div>
 
-  <div id="sidebar" class="sidebar">
+  <aside id="sidebar" class="sidebar">
     <div class="sidebar-inner">
 
       
         <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
             文章目錄
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview">
@@ -259,13 +279,13 @@
         </ul>
       
 
-      <div class="site-overview">
-        <div class="site-author motion-element">
-          <img class="site-author-image" src="/images/default_avatar.jpg" alt="Starck Lin" />
-          <p class="site-author-name">Starck Lin</p>
+      <section class="site-overview">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" src="/hexo-blog/images/default_avatar.jpg" alt="Starck Lin" itemprop="image"/>
+          <p class="site-author-name" itemprop="name">Starck Lin</p>
         </div>
-        <p class="site-description motion-element"></p>
-        <div class="site-state motion-element">
+        <p class="site-description motion-element" itemprop="description"></p>
+        <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
               <span class="site-state-item-count">15</span>
@@ -287,7 +307,7 @@
               </a>
           </div>
 
-        </div>
+        </nav>
 
         
 
@@ -301,11 +321,11 @@
         <div class="links-of-author motion-element">
           
         </div>
-        
-      </div>
+
+      </section>
 
       
-        <div class="post-toc-wrap sidebar-panel-active">
+        <section class="post-toc-wrap sidebar-panel-active">
           <div class="post-toc-indicator-top post-toc-indicator"></div>
           <div class="post-toc">
             
@@ -314,25 +334,25 @@
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
-        </div>
+        </section>
       
 
     </div>
-  </div>
+  </aside>
 
 
-    </div>
+    </main>
 
-    <div id="footer" class="footer">
-      <div class="footer-inner">
-        <div class="copyright">
+    <footer id="footer" class="footer">
+        <div class="footer-inner">
+            <div class="copyright" >
   
   &copy; &nbsp; 
-  2015
+  <span itemprop="copyrightYear">2015</span>
   <span class="with-love">
     <i class="icon-heart"></i>
   </span>
-  <span class="author">Starck Lin</span>
+  <span class="author" itemprop="copyrightHolder">Starck Lin</span>
 </div>
 
 <div class="powered-by">
@@ -348,37 +368,44 @@
 
 
 
-      </div>
-    </div>
+        </div>
+    </footer>
 
     <div class="back-to-top"></div>
-  </div>
+</div>
 
-  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
-
-  
-  
-
-  
-  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
-  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.3"></script>
-
-
-  <script type="text/javascript" src="/js/helpers.js?v=0.4.3"></script>
-  
-
-  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
-  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
-
-  <script type="text/javascript" src="/js/motion_global.js?v=0.4.3" id="motion.global"></script>
-
-
-
-  <script type="text/javascript" src="/js/search-toggle.js"></script>
+<script type="text/javascript" src="/hexo-blog/vendors/jquery/index.js?v=2.1.3"></script>
 
   
   
-<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.3" id="bootstrap.scrollspy.custom"></script>
+  
+    
+    
+
+  
+
+
+  
+  
+  <script type="text/javascript" src="/hexo-blog/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/hexo-blog/js/fancy-box.js?v=0.4.4"></script>
+
+
+  <script type="text/javascript" src="/hexo-blog/js/helpers.js?v=0.4.4"></script>
+  
+
+  <script type="text/javascript" src="/hexo-blog/vendors/velocity/velocity.min.js"></script>
+  <script type="text/javascript" src="/hexo-blog/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/hexo-blog/js/motion_global.js?v=0.4.4" id="motion.global"></script>
+
+
+
+  <script type="text/javascript" src="/hexo-blog/js/search-toggle.js"></script>
+
+
+  
+<script type="text/javascript" src="/hexo-blog/js/bootstrap.scrollspy.js?v=0.4.4" id="bootstrap.scrollspy.custom"></script>
 
 
 <script type="text/javascript" id="sidebar.toc.highlight">
@@ -411,7 +438,6 @@
     }
 
     function getTOCMaxHeight () {
-      var $sidebarInner = $('.sidebar-inner');
       var height = $('.sidebar').height() -
                    $tocSelector.position().top -
                    $('.post-toc-indicator-bottom').height();
@@ -433,7 +459,7 @@
       )
     }
 
-    $(document).on('sidebar.didShow', function () {
+    $(document).on('sidebar.motion.complete', function () {
       processTOC();
     });
 
@@ -517,27 +543,30 @@
 
 
 
-  <script type="text/javascript">
+<script type="text/javascript">
     $(document).ready(function () {
-      if (CONFIG.sidebar === 'always') {
-        displaySidebar();
-      }
+        if (CONFIG.sidebar === 'always') {
+            displaySidebar();
+        }
     });
-  </script>
-
-  
-
-  
-  
-  
-
-  
+</script>
 
 
 
 
-  
-  
 
+
+
+
+<!-- lazyload -->
+<script type="text/javascript" src="/hexo-blog/js/lazyload.js"></script>
+<script type="text/javascript">
+    jQuery(function () {
+        jQuery("#posts img").lazyload({
+            placeholder: "/hexo-blog/images/loading.gif",
+            effect: "fadeIn"
+        });
+    });
+</script>
 </body>
 </html>

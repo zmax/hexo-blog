@@ -1,25 +1,29 @@
 <!doctype html>
 <html class="theme-next use-motion theme-next-mist">
 <head>
-  
+    
 
 <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
 
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
 
 
 
 
-  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
+
+
+  <link rel="stylesheet" type="text/css" href="/hexo-blog/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
 
 
 
-  <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+  <link href='//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
 
 
-<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.3"/>
+<link rel="stylesheet" type="text/css" href="/hexo-blog/css/main.css?v=0.4.4"/>
 
 
 
@@ -30,28 +34,31 @@
 
 
 
-  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.3" />
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.4" />
 
+
+<meta name="description">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Starck Lin">
+<meta property="og:url" content="http://zmax.github.io/archives/index.html">
+<meta property="og:site_name" content="Starck Lin">
+<meta property="og:description">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Starck Lin">
+<meta name="twitter:description">
 
 
 <script type="text/javascript" id="hexo.configuration">
   var CONFIG = {
     scheme: 'Mist',
-    analytics: {
-      google: ''
-    },
     sidebar: 'post'
   };
 </script>
 
-
-
-
-  <title> 歸檔 // Starck Lin </title>
+    <title> 歸檔 // Starck Lin </title>
 </head>
-
-<body>
-  <!--[if lte IE 8]>
+<body itemscope itemtype="http://schema.org/WebPage" lang="">
+<!--[if lte IE 8]>
   <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
     <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
       <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
@@ -61,14 +68,15 @@
   </div>
 <![endif]-->
 
-  <div class="container one-column  page-archive ">
-    <div class="headband"></div>
 
-    <div id="header" class="header">
-      <div class="header-inner">
-        <h1 class="site-meta">
+
+
+<div class="container one-column  page-archive ">
+    <div class="headband"></div>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+        <div class="header-inner"><h1 class="site-meta">
   <span class="logo-line-before"><i></i></span>
-  <a href="/" class="brand">
+  <a href="/hexo-blog/" class="brand" rel="start">
       <span class="logo">
         <i class="icon-logo"></i>
       </span>
@@ -85,7 +93,7 @@
   </button>
 </div>
 
-<div class="site-nav">
+<nav class="site-nav">
   
 
   
@@ -93,7 +101,7 @@
       
         
         <li class="menu-item menu-item-home">
-          <a href="/">
+          <a href="/" rel="section">
             <i class="menu-item-icon icon-home"></i> <br />
             首頁
           </a>
@@ -101,7 +109,7 @@
       
         
         <li class="menu-item menu-item-archives">
-          <a href="/archives">
+          <a href="/archives" rel="section">
             <i class="menu-item-icon icon-archives"></i> <br />
             歸檔
           </a>
@@ -109,7 +117,7 @@
       
         
         <li class="menu-item menu-item-tags">
-          <a href="/tags">
+          <a href="/tags" rel="section">
             <i class="menu-item-icon icon-tags"></i> <br />
             標籤
           </a>
@@ -119,18 +127,18 @@
   
 
   
-</div>
+</nav>
 
 
-      </div>
-    </div>
+        </div>
+    </header>
 
-    <div id="main" class="main">
-      <div class="main-inner">
-        <div id="content" class="content">
-          
+    <main id="main" class="main">
+        <div class="main-inner">
+            <div id="content" class="content">
+                
 
-  <div id="posts" class="posts-collapse">
+  <section id="posts" class="posts-collapse">
     <span class="archive-move-on"></span>
 
     <span class="archive-page-counter">
@@ -158,23 +166,23 @@
 
       
 
-  <div class="post post-type-normal">
-    <div class="post-header">
+  <article class="post post-type-normal"itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
 
-      <div class="post-title">
+      <h1 class="post-title">
         
-            <a class="post-title-link" href="/2015/07/26/hello-world/">
-              Hello World
+            <a class="post-title-link" href="/hexo-blog/2015/07/26/hello-world/" itemprop="url">
+              <span itemprop="name">Hello World</span>
             </a>
         
-      </div>
+      </h1>
 
       <div class="post-meta">
-        <span class="post-time"> 07-26 </span>
+        <time class="post-time" datetime="2015-07-26T14:51:15.000Z" itemprop="dateCreated" content="2015-07-26"> 07-26 </time>
       </div>
 
-    </div>
-  </div>
+    </header>
+  </article>
 
 
 
@@ -189,23 +197,23 @@
 
       
 
-  <div class="post post-type-normal">
-    <div class="post-header">
+  <article class="post post-type-normal"itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
 
-      <div class="post-title">
+      <h1 class="post-title">
         
-            <a class="post-title-link" href="/2015/07/25/Getting-Things-Done/">
-              Getting Things Done
+            <a class="post-title-link" href="/hexo-blog/2015/07/25/Getting-Things-Done/" itemprop="url">
+              <span itemprop="name">Getting Things Done</span>
             </a>
         
-      </div>
+      </h1>
 
       <div class="post-meta">
-        <span class="post-time"> 07-25 </span>
+        <time class="post-time" datetime="2015-07-25T11:04:34.000Z" itemprop="dateCreated" content="2015-07-25"> 07-25 </time>
       </div>
 
-    </div>
-  </div>
+    </header>
+  </article>
 
 
 
@@ -220,23 +228,23 @@
 
       
 
-  <div class="post post-type-normal">
-    <div class="post-header">
+  <article class="post post-type-normal"itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
 
-      <div class="post-title">
+      <h1 class="post-title">
         
-            <a class="post-title-link" href="/2015/07/23/Testing-Your-Website-to-Check-If-It-is-Accessible-from-China/">
-              Testing Your Website to Check If It is Accessible from China
+            <a class="post-title-link" href="/hexo-blog/2015/07/23/Testing-Your-Website-to-Check-If-It-is-Accessible-from-China/" itemprop="url">
+              <span itemprop="name">Testing Your Website to Check If It is Accessible from China</span>
             </a>
         
-      </div>
+      </h1>
 
       <div class="post-meta">
-        <span class="post-time"> 07-23 </span>
+        <time class="post-time" datetime="2015-07-22T19:23:52.000Z" itemprop="dateCreated" content="2015-07-22"> 07-23 </time>
       </div>
 
-    </div>
-  </div>
+    </header>
+  </article>
 
 
 
@@ -251,23 +259,23 @@
 
       
 
-  <div class="post post-type-normal">
-    <div class="post-header">
+  <article class="post post-type-normal"itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
 
-      <div class="post-title">
+      <h1 class="post-title">
         
-            <a class="post-title-link" href="/2015/07/18/cURL-SSLRead-error-on-MacOS-Yosemite/">
-              cURL SSLRead() error on MacOS Yosemite
+            <a class="post-title-link" href="/hexo-blog/2015/07/18/cURL-SSLRead-error-on-MacOS-Yosemite/" itemprop="url">
+              <span itemprop="name">cURL SSLRead() error on MacOS Yosemite</span>
             </a>
         
-      </div>
+      </h1>
 
       <div class="post-meta">
-        <span class="post-time"> 07-18 </span>
+        <time class="post-time" datetime="2015-07-18T09:46:05.000Z" itemprop="dateCreated" content="2015-07-18"> 07-18 </time>
       </div>
 
-    </div>
-  </div>
+    </header>
+  </article>
 
 
 
@@ -282,23 +290,23 @@
 
       
 
-  <div class="post post-type-normal">
-    <div class="post-header">
+  <article class="post post-type-normal"itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
 
-      <div class="post-title">
+      <h1 class="post-title">
         
-            <a class="post-title-link" href="/2015/07/08/Reading-list-for-Typography/">
-              Reading list for Typography
+            <a class="post-title-link" href="/hexo-blog/2015/07/08/Reading-list-for-Typography/" itemprop="url">
+              <span itemprop="name">Reading list for Typography</span>
             </a>
         
-      </div>
+      </h1>
 
       <div class="post-meta">
-        <span class="post-time"> 07-08 </span>
+        <time class="post-time" datetime="2015-07-07T16:32:02.000Z" itemprop="dateCreated" content="2015-07-07"> 07-08 </time>
       </div>
 
-    </div>
-  </div>
+    </header>
+  </article>
 
 
 
@@ -313,23 +321,23 @@
 
       
 
-  <div class="post post-type-normal">
-    <div class="post-header">
+  <article class="post post-type-normal"itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
 
-      <div class="post-title">
+      <h1 class="post-title">
         
-            <a class="post-title-link" href="/2015/07/07/React-Day-5-Reusable-Components/">
-              React Day 5 - Reusable Components
+            <a class="post-title-link" href="/hexo-blog/2015/07/07/React-Day-5-Reusable-Components/" itemprop="url">
+              <span itemprop="name">React Day 5 - Reusable Components</span>
             </a>
         
-      </div>
+      </h1>
 
       <div class="post-meta">
-        <span class="post-time"> 07-07 </span>
+        <time class="post-time" datetime="2015-07-07T05:49:59.000Z" itemprop="dateCreated" content="2015-07-07"> 07-07 </time>
       </div>
 
-    </div>
-  </div>
+    </header>
+  </article>
 
 
 
@@ -344,23 +352,23 @@
 
       
 
-  <div class="post post-type-normal">
-    <div class="post-header">
+  <article class="post post-type-normal"itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
 
-      <div class="post-title">
+      <h1 class="post-title">
         
-            <a class="post-title-link" href="/2015/07/07/React-Day-4-Multiple-Components/">
-              React Day 4 - Multiple Components
+            <a class="post-title-link" href="/hexo-blog/2015/07/07/React-Day-4-Multiple-Components/" itemprop="url">
+              <span itemprop="name">React Day 4 - Multiple Components</span>
             </a>
         
-      </div>
+      </h1>
 
       <div class="post-meta">
-        <span class="post-time"> 07-07 </span>
+        <time class="post-time" datetime="2015-07-07T05:49:34.000Z" itemprop="dateCreated" content="2015-07-07"> 07-07 </time>
       </div>
 
-    </div>
-  </div>
+    </header>
+  </article>
 
 
 
@@ -375,23 +383,23 @@
 
       
 
-  <div class="post post-type-normal">
-    <div class="post-header">
+  <article class="post post-type-normal"itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
 
-      <div class="post-title">
+      <h1 class="post-title">
         
-            <a class="post-title-link" href="/2015/07/07/React-Day-3-Interactivity-and-Dynamic-UIs/">
-              React Day 3 - Interactivity and Dynamic UIs
+            <a class="post-title-link" href="/hexo-blog/2015/07/07/React-Day-3-Interactivity-and-Dynamic-UIs/" itemprop="url">
+              <span itemprop="name">React Day 3 - Interactivity and Dynamic UIs</span>
             </a>
         
-      </div>
+      </h1>
 
       <div class="post-meta">
-        <span class="post-time"> 07-07 </span>
+        <time class="post-time" datetime="2015-07-07T05:48:55.000Z" itemprop="dateCreated" content="2015-07-07"> 07-07 </time>
       </div>
 
-    </div>
-  </div>
+    </header>
+  </article>
 
 
 
@@ -406,23 +414,23 @@
 
       
 
-  <div class="post post-type-normal">
-    <div class="post-header">
+  <article class="post post-type-normal"itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
 
-      <div class="post-title">
+      <h1 class="post-title">
         
-            <a class="post-title-link" href="/2015/07/07/React-Day-2-JSX-in-Depth/">
-              React Day 2 - JSX in Depth
+            <a class="post-title-link" href="/hexo-blog/2015/07/07/React-Day-2-JSX-in-Depth/" itemprop="url">
+              <span itemprop="name">React Day 2 - JSX in Depth</span>
             </a>
         
-      </div>
+      </h1>
 
       <div class="post-meta">
-        <span class="post-time"> 07-07 </span>
+        <time class="post-time" datetime="2015-07-07T05:46:23.000Z" itemprop="dateCreated" content="2015-07-07"> 07-07 </time>
       </div>
 
-    </div>
-  </div>
+    </header>
+  </article>
 
 
 
@@ -437,44 +445,45 @@
 
       
 
-  <div class="post post-type-normal">
-    <div class="post-header">
+  <article class="post post-type-normal"itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
 
-      <div class="post-title">
+      <h1 class="post-title">
         
-            <a class="post-title-link" href="/2015/07/07/React-Day-1-Getting-Started/">
-              React Day 1 - Getting Started
+            <a class="post-title-link" href="/hexo-blog/2015/07/07/React-Day-1-Getting-Started/" itemprop="url">
+              <span itemprop="name">React Day 1 - Getting Started</span>
             </a>
         
-      </div>
+      </h1>
 
       <div class="post-meta">
-        <span class="post-time"> 07-07 </span>
+        <time class="post-time" datetime="2015-07-07T05:44:12.000Z" itemprop="dateCreated" content="2015-07-07"> 07-07 </time>
       </div>
 
-    </div>
-  </div>
+    </header>
+  </article>
 
 
 
     
 
-  </div>
+  </section>
 
   
-  <div class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="extend next" rel="next" href="/archives/page/2/">&raquo;</a>
-  </div>
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/hexo-blog/archives/page/2/">2</a><a class="extend next" rel="next" href="/hexo-blog/archives/page/2/">&raquo;</a>
+  </nav>
 
 
 
+            </div>
+
+            
+
+            
         </div>
 
         
-      </div>
-
-
-      
   
   <div class="sidebar-toggle">
     <div class="sidebar-toggle-line-wrap">
@@ -484,18 +493,18 @@
     </div>
   </div>
 
-  <div id="sidebar" class="sidebar">
+  <aside id="sidebar" class="sidebar">
     <div class="sidebar-inner">
 
       
 
-      <div class="site-overview">
-        <div class="site-author motion-element">
-          <img class="site-author-image" src="/images/default_avatar.jpg" alt="Starck Lin" />
-          <p class="site-author-name">Starck Lin</p>
+      <section class="site-overview">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" src="/hexo-blog/images/default_avatar.jpg" alt="Starck Lin" itemprop="image"/>
+          <p class="site-author-name" itemprop="name">Starck Lin</p>
         </div>
-        <p class="site-description motion-element"></p>
-        <div class="site-state motion-element">
+        <p class="site-description motion-element" itemprop="description"></p>
+        <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
               <span class="site-state-item-count">15</span>
@@ -517,7 +526,7 @@
               </a>
           </div>
 
-        </div>
+        </nav>
 
         
 
@@ -531,27 +540,27 @@
         <div class="links-of-author motion-element">
           
         </div>
-        
-      </div>
+
+      </section>
 
       
 
     </div>
-  </div>
+  </aside>
 
 
-    </div>
+    </main>
 
-    <div id="footer" class="footer">
-      <div class="footer-inner">
-        <div class="copyright">
+    <footer id="footer" class="footer">
+        <div class="footer-inner">
+            <div class="copyright" >
   
   &copy; &nbsp; 
-  2015
+  <span itemprop="copyrightYear">2015</span>
   <span class="with-love">
     <i class="icon-heart"></i>
   </span>
-  <span class="author">Starck Lin</span>
+  <span class="author" itemprop="copyrightHolder">Starck Lin</span>
 </div>
 
 <div class="powered-by">
@@ -567,13 +576,13 @@
 
 
 
-      </div>
-    </div>
+        </div>
+    </footer>
 
     <div class="back-to-top"></div>
-  </div>
+</div>
 
-  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+<script type="text/javascript" src="/hexo-blog/vendors/jquery/index.js?v=2.1.3"></script>
 
   
   
@@ -583,25 +592,32 @@
     </script>
   
 
+  
+    
+    
 
   
-  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
-  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.3"></script>
 
-
-  <script type="text/javascript" src="/js/helpers.js?v=0.4.3"></script>
-  
-
-  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
-  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
-
-  <script type="text/javascript" src="/js/motion_global.js?v=0.4.3" id="motion.global"></script>
-
-
-
-  <script type="text/javascript" src="/js/search-toggle.js"></script>
 
   
+  
+  <script type="text/javascript" src="/hexo-blog/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/hexo-blog/js/fancy-box.js?v=0.4.4"></script>
+
+
+  <script type="text/javascript" src="/hexo-blog/js/helpers.js?v=0.4.4"></script>
+  
+
+  <script type="text/javascript" src="/hexo-blog/vendors/velocity/velocity.min.js"></script>
+  <script type="text/javascript" src="/hexo-blog/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/hexo-blog/js/motion_global.js?v=0.4.4" id="motion.global"></script>
+
+
+
+  <script type="text/javascript" src="/hexo-blog/js/search-toggle.js"></script>
+
+
   
     <script type="text/javascript" id="motion.page.archive">
       $('.archive-year').velocity('transition.slideLeftIn');
@@ -609,20 +625,30 @@
   
 
 
-  <script type="text/javascript">
+<script type="text/javascript">
     $(document).ready(function () {
-      if (CONFIG.sidebar === 'always') {
-        displaySidebar();
-      }
+        if (CONFIG.sidebar === 'always') {
+            displaySidebar();
+        }
     });
-  </script>
+</script>
 
-  
 
-  
 
-  
-  
 
+
+
+
+
+<!-- lazyload -->
+<script type="text/javascript" src="/hexo-blog/js/lazyload.js"></script>
+<script type="text/javascript">
+    jQuery(function () {
+        jQuery("#posts img").lazyload({
+            placeholder: "/hexo-blog/images/loading.gif",
+            effect: "fadeIn"
+        });
+    });
+</script>
 </body>
 </html>
