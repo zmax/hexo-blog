@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>React Day 5 - Reusable Components | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="當在設計界面的時候, 用規劃好的界面結構並拆分常見的設計元素(按鈕, 表單欄位, 排版元件… 等)成可重覆利用的組件. 這樣當你下次需要再建立相同的界面時, 你可以編寫比較少的程式碼, 這意謂著將會得到更快的開發速度, 少一點的錯誤和打字.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="React Day 5 - Reusable Components">
+<meta property="og:url" content="http://yoursite.com/2015/07/07/React-Day-5-Reusable-Components/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="當在設計界面的時候, 用規劃好的界面結構並拆分常見的設計元素(按鈕, 表單欄位, 排版元件… 等)成可重覆利用的組件. 這樣當你下次需要再建立相同的界面時, 你可以編寫比較少的程式碼, 這意謂著將會得到更快的開發速度, 少一點的錯誤和打字.">
+<meta property="og:updated_time" content="2015-07-08T12:54:45.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="React Day 5 - Reusable Components">
+<meta name="twitter:description" content="當在設計界面的時候, 用規劃好的界面結構並拆分常見的設計元素(按鈕, 表單欄位, 排版元件… 等)成可重覆利用的組件. 這樣當你下次需要再建立相同的界面時, 你可以編寫比較少的程式碼, 這意謂著將會得到更快的開發速度, 少一點的錯誤和打字.">
+  
+    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  
+
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-React-Day-5-Reusable-Components" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/07/07/React-Day-5-Reusable-Components/" class="article-date">
+  <time datetime="2015-07-07T05:49:59.000Z" itemprop="datePublished">2015-07-07</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      React Day 5 - Reusable Components
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>當在設計界面的時候, 用規劃好的界面結構並拆分常見的設計元素(按鈕, 表單欄位, 排版元件… 等)成可重覆利用的組件. 這樣當你下次需要再建立相同的界面時, 你可以編寫比較少的程式碼, 這意謂著將會得到更快的開發速度, 少一點的錯誤和打字.</p>
+<a id="more"></a>
+<h3 id="Prop_Validation">Prop Validation</h3><p>當在開發你的程式時, Prop Validation 可以幫助讓你的組件使用正確. 我們可以透過指定一個 <code>propTypes</code> 屬性來作到這點. <code>React.PropTypes</code> 提供了很多種驗證讓你確保接受到的資料類型是正確的. 當收到一個不正確類型的資料內容, 一個警告通知會顯示在 Javascript Console.</p>
+<p>需要注意的是基於效能考量, <code>propTypes</code> 應只在開發階段時使用. 下面將示範並說明有哪些驗證可以使用:</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line">React.createClass(&#123;</span><br><span class="line">  propTypes: &#123;</span><br><span class="line">    <span class="comment">// You can declare that a prop is a specific JS primitive. By default, these</span></span><br><span class="line">    <span class="comment">// are all optional.</span></span><br><span class="line">    optionalArray: React.PropTypes.array,</span><br><span class="line">    optionalBool: React.PropTypes.<span class="typename">bool</span>,</span><br><span class="line">    optionalFunc: React.PropTypes.<span class="keyword">func</span>,</span><br><span class="line">    optionalNumber: React.PropTypes.number,</span><br><span class="line">    optionalObject: React.PropTypes.object,</span><br><span class="line">    optionalString: React.PropTypes.<span class="typename">string</span>,</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Anything that can be rendered: numbers, strings, elements or an array</span></span><br><span class="line">    <span class="comment">// containing these types.</span></span><br><span class="line">    optionalNode: React.PropTypes.node,</span><br><span class="line"></span><br><span class="line">    <span class="comment">// A React element.</span></span><br><span class="line">    optionalElement: React.PropTypes.element,</span><br><span class="line"></span><br><span class="line">    <span class="comment">// You can also declare that a prop is an instance of a class. This uses</span></span><br><span class="line">    <span class="comment">// JS's instanceof operator.</span></span><br><span class="line">    optionalMessage: React.PropTypes.instanceOf(Message),</span><br><span class="line"></span><br><span class="line">    <span class="comment">// You can ensure that your prop is limited to specific values by treating</span></span><br><span class="line">    <span class="comment">// it as an enum.</span></span><br><span class="line">    optionalEnum: React.PropTypes.oneOf([<span class="string">'News'</span>, <span class="string">'Photos'</span>]),</span><br><span class="line"></span><br><span class="line">    <span class="comment">// An object that could be one of many types</span></span><br><span class="line">    optionalUnion: React.PropTypes.oneOfType([</span><br><span class="line">      React.PropTypes.<span class="typename">string</span>,</span><br><span class="line">      React.PropTypes.number,</span><br><span class="line">      React.PropTypes.instanceOf(Message)</span><br><span class="line">    ]),</span><br><span class="line"></span><br><span class="line">    <span class="comment">// An array of a certain type</span></span><br><span class="line">    optionalArrayOf: React.PropTypes.arrayOf(React.PropTypes.number),</span><br><span class="line"></span><br><span class="line">    <span class="comment">// An object with property values of a certain type</span></span><br><span class="line">    optionalObjectOf: React.PropTypes.objectOf(React.PropTypes.number),</span><br><span class="line"></span><br><span class="line">    <span class="comment">// An object taking on a particular shape</span></span><br><span class="line">    optionalObjectWithShape: React.PropTypes.shape(&#123;</span><br><span class="line">      color: React.PropTypes.<span class="typename">string</span>,</span><br><span class="line">      fontSize: React.PropTypes.number</span><br><span class="line">    &#125;),</span><br><span class="line"></span><br><span class="line">    <span class="comment">// You can chain any of the above with `isRequired` to make sure a warning</span></span><br><span class="line">    <span class="comment">// is shown if the prop isn't provided.</span></span><br><span class="line">    requiredFunc: React.PropTypes.<span class="keyword">func</span>.isRequired,</span><br><span class="line"></span><br><span class="line">    <span class="comment">// A value of any data type</span></span><br><span class="line">    requiredAny: React.PropTypes.any.isRequired,</span><br><span class="line"></span><br><span class="line">    <span class="comment">// You can also specify a custom validator. It should return an Error</span></span><br><span class="line">    <span class="comment">// object if the validation fails. Don't `console.warn` or throw, as this</span></span><br><span class="line">    <span class="comment">// won't work inside `oneOfType`.</span></span><br><span class="line">    customProp: function(props, propName, componentName) &#123;</span><br><span class="line">      <span class="keyword">if</span> (!/matchme/.test(props[propName])) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">new</span> Error(<span class="string">'Validation failed!'</span>);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">/* ... */</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="Default_Prop_Values">Default Prop Values</h3><p>React 可讓你描述預設 <code>props</code> 的資料內容:</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> ComponentWithDefaultProps = React.createClass(&#123;</span><br><span class="line">  getDefaultProps: <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">      value: <span class="string">'default value'</span></span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">/* ... */</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p><code>getDefaultProps()</code> 的結果會被快取與使用, 確保當 <code>this.props.value</code> 沒有經由上層組件 (parent component) 傳遞進來時仍有預設的值. 這讓你可以安心地使用你的 <code>props</code> 而不用為了顧及資料的存在與否而編寫一些重覆瑣碎的程式碼.</p>
+<h3 id="Transferring_Props:_A_Shortcut">Transferring Props: A Shortcut</h3><p>一般的 React component 只需要簡單擴充一個基本的 HTML. 你將會常需要從你的組件複製任何的 HTML attributes 到底層的 HTML 元素以減少打字. 你可以使用 <code>JSX spread syntax</code> 來實現這點:</p>
+<figure class="highlight haxe"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> CheckLink = React.createClass(&#123;</span><br><span class="line">  render: <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="comment">// This takes any props passed to CheckLink and copies them to &lt;a&gt;</span></span><br><span class="line">    <span class="keyword">return</span> &lt;a &#123;...<span class="keyword">this</span>.props&#125;&gt;&#123;<span class="string">'√ '</span>&#125;&#123;<span class="keyword">this</span>.props.children&#125;&lt;/a&gt;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">React.render(</span><br><span class="line">  &lt;CheckLink href=<span class="string">"/checked.html"</span>&gt;</span><br><span class="line">    Click <span class="keyword">here</span>!</span><br><span class="line">  &lt;/CheckLink&gt;,</span><br><span class="line">  document.getElementById(<span class="string">'example'</span>)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<h3 id="Single_Child">Single Child</h3><p>透過 <code>React.PropTypes.element</code> 你可以指定組件只能擁有一個子元素:</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> MyComponent = React.createClass(&#123;</span><br><span class="line">  propTypes: &#123;</span><br><span class="line">    children: React.PropTypes.element.isRequired</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  render: <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      &lt;div&gt;</span><br><span class="line">        &#123;<span class="keyword">this</span>.props.children&#125; <span class="comment">// This must be exactly one element or it will throw.</span></span><br><span class="line">      &lt;/div&gt;</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="Mixins">Mixins</h3><p>在 React 中最棒的一件事就是可以重覆使用程式碼, 但有時不同的組件可能需要相同的功能, 這樣的需求有時被稱作 <a href="http://en.wikipedia.org/wiki/Cross-cutting_concern" target="_blank" rel="external">cross-cutting concerns</a>. React 提供 <code>mixins</code> 的機制解決這樣的問題.</p>
+<p>常見的案例是有一個組件要定時地更新它自己. 可以用 <code>setInterval()</code> 輕易地作到這點, 但重點是當你不需要的時候取消定時這個機制以節約記憶體的浪費. React 提供 <a href="http://facebook.github.io/react/docs/working-with-the-browser.html#component-lifecycle" target="_blank" rel="external">lifecyle methods</a> 的一些方法來讓你知道一個組件什麼時候被建立和銷毁. 讓我們建立一個簡單的 mixin 並用這些方法來提供一個簡易並在組件被銷毁時能自動清除的 <code>setInterval()</code> 方法.</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> SetIntervalMixin = &#123;</span><br><span class="line">  componentWillMount: <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.intervals = [];</span><br><span class="line">  &#125;,</span><br><span class="line">  setInterval: <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.intervals.push(setInterval.apply(<span class="literal">null</span>, arguments));</span><br><span class="line">  &#125;,</span><br><span class="line">  componentWillUnmount: <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.intervals.map(clearInterval);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> TickTock = React.createClass(&#123;</span><br><span class="line">  mixins: [SetIntervalMixin], <span class="comment">// Use the mixin</span></span><br><span class="line">  getInitialState: <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;seconds: <span class="number">0</span>&#125;;</span><br><span class="line">  &#125;,</span><br><span class="line">  componentDidMount: <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.setInterval(<span class="keyword">this</span>.tick, <span class="number">1000</span>); <span class="comment">// Call a method on the mixin</span></span><br><span class="line">  &#125;,</span><br><span class="line">  tick: <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.setState(&#123;seconds: <span class="keyword">this</span>.state.seconds + <span class="number">1</span>&#125;);</span><br><span class="line">  &#125;,</span><br><span class="line">  render: <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      &lt;p&gt;</span><br><span class="line">        React has been running <span class="keyword">for</span> &#123;<span class="keyword">this</span>.state.seconds&#125; seconds.</span><br><span class="line">      &lt;/p&gt;</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">React.render(</span><br><span class="line">  &lt;TickTock /&gt;,</span><br><span class="line">  document.getElementById(<span class="string">'example'</span>)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<p><code>Mixins</code> 有一個很棒的特色就是如果一個組件同時使用數個 mixins 而那些又同時定義了相同的 lifecyle method (例如這幾個 mixins 都同時在組件銷毁時做了一些清除動作), 所有的 lifecyle methods 都會確保有被呼叫. Mixins 的執行會依據你在 <code>mixins</code> 屬性定義的先後順序.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2015/07/07/React-Day-5-Reusable-Components/" data-id="cicklvp69000nhovoxamb16r3" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React-js/">React.js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/07/08/Reading-list-for-Typography/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Reading list for Typography
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/07/07/React-Day-4-Multiple-Components/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">React Day 4 - Multiple Components</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Atom/">Atom</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DNS/">DNS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MacOS/">MacOS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PaaS/">PaaS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React-js/">React.js</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SSL/">SSL</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Time-Management/">Time Management</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Typography/">Typography</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cURL/">cURL</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dokku/">dokku</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a><span class="tag-list-count">5</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Atom/" style="font-size: 10px;">Atom</a> <a href="/tags/DNS/" style="font-size: 10px;">DNS</a> <a href="/tags/MacOS/" style="font-size: 10px;">MacOS</a> <a href="/tags/PaaS/" style="font-size: 10px;">PaaS</a> <a href="/tags/React-js/" style="font-size: 20px;">React.js</a> <a href="/tags/SSL/" style="font-size: 10px;">SSL</a> <a href="/tags/Time-Management/" style="font-size: 10px;">Time Management</a> <a href="/tags/Typography/" style="font-size: 10px;">Typography</a> <a href="/tags/cURL/" style="font-size: 10px;">cURL</a> <a href="/tags/dokku/" style="font-size: 10px;">dokku</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a><span class="archive-list-count">3</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2015/07/26/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2015/07/25/Getting-Things-Done/">Getting Things Done</a>
+          </li>
+        
+          <li>
+            <a href="/2015/07/23/Testing-Your-Website-to-Check-If-It-is-Accessible-from-China/">Testing Your Website to Check If It is Accessible from China</a>
+          </li>
+        
+          <li>
+            <a href="/2015/07/18/cURL-SSLRead-error-on-MacOS-Yosemite/">cURL SSLRead() error on MacOS Yosemite</a>
+          </li>
+        
+          <li>
+            <a href="/2015/07/08/Reading-list-for-Typography/">Reading list for Typography</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2015 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+
+
+<script src="/js/script.js" type="text/javascript"></script>
+
+  </div>
+</body>
+</html>

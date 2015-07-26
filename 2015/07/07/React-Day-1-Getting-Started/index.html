@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>React Day 1 - Getting Started | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Why React?React 是一個 facebook 和 instagram 為了建構使用者界面的 javascript 函式庫. 大部分的人把它當作 MVC 架構中的 View 使用.
+我們用 React 解決一個問題: 建構大型應用程式時隨時間改變的資料.
+Simple簡潔地表達你的程式在什麼時間點應該要長得怎麼樣, 當底層的資料改變時, React 會自動管理 UI 的更新.
+Decla">
+<meta property="og:type" content="article">
+<meta property="og:title" content="React Day 1 - Getting Started">
+<meta property="og:url" content="http://yoursite.com/2015/07/07/React-Day-1-Getting-Started/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Why React?React 是一個 facebook 和 instagram 為了建構使用者界面的 javascript 函式庫. 大部分的人把它當作 MVC 架構中的 View 使用.
+我們用 React 解決一個問題: 建構大型應用程式時隨時間改變的資料.
+Simple簡潔地表達你的程式在什麼時間點應該要長得怎麼樣, 當底層的資料改變時, React 會自動管理 UI 的更新.
+Decla">
+<meta property="og:updated_time" content="2015-07-08T12:54:24.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="React Day 1 - Getting Started">
+<meta name="twitter:description" content="Why React?React 是一個 facebook 和 instagram 為了建構使用者界面的 javascript 函式庫. 大部分的人把它當作 MVC 架構中的 View 使用.
+我們用 React 解決一個問題: 建構大型應用程式時隨時間改變的資料.
+Simple簡潔地表達你的程式在什麼時間點應該要長得怎麼樣, 當底層的資料改變時, React 會自動管理 UI 的更新.
+Decla">
+  
+    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  
+
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-React-Day-1-Getting-Started" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/07/07/React-Day-1-Getting-Started/" class="article-date">
+  <time datetime="2015-07-07T05:44:12.000Z" itemprop="datePublished">2015-07-07</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      React Day 1 - Getting Started
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="Why_React?">Why React?</h3><p>React 是一個 facebook 和 instagram 為了建構使用者界面的 javascript 函式庫. 大部分的人把它當作 MVC 架構中的 View 使用.</p>
+<p>我們用 React 解決一個問題: 建構大型應用程式時隨時間改變的資料.</p>
+<h5 id="Simple">Simple</h5><p>簡潔地表達你的程式在什麼時間點應該要長得怎麼樣, 當底層的資料改變時, React 會自動管理 UI 的更新.</p>
+<h5 id="Declarative">Declarative</h5><p>當資料改變, 在概念上, React 就像 refresh 按鈕且只會變動需要更新的部分.</p>
+<h5 id="Build_Composable_Components">Build Composable Components</h5><p>React 專注於建立可重覆使用的組件, 事實上, 在 React 中你唯一能作的事也就是只有建立組件. 由於其封裝性, 組件讓你的程式碼可以重覆利用, 易於測試與容易切分組件之間的關係.</p>
+<a id="more"></a>
+<h3 id="JSX">JSX</h3><p>我們強烈地相信用組件的這種設計方法比起 “模板(templates)” 和 “顯示邏輯(display logic)” 這些方式來得更能劃分清楚關係. 我們認為標籤(markup)與相關的程式碼應要更緊密的連結在一起. 此外, 顯示邏輯通常都非常複雜, 若使用模板語言(template language)將顯得極其笨重.</p>
+<p>我們找到解決這個問題最好的方法就是直接在 javascript 程式碼裡用一種能夠完全表達清楚的語言去產生 HTML code 和表達組件的樹狀結構.</p>
+<p>為了使這件事變得容易, 我們創造了一個簡單的, 或必要性的, 類似像 HTML 的語法來建構 React 的樹狀節點 - <strong>JSX</strong></p>
+<p><strong>jSX 讓你用 HTML 的語法建立 Javascript 的物件</strong> :</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">React</span><span class="class">.createElement</span>(<span class="string">'a'</span>, &#123;<span class="attribute">href</span>: <span class="string">'http://facebook.github.io/react/'</span>&#125;, <span class="string">'Hello!'</span>);</span><br></pre></td></tr></table></figure>
+<p>換成 JSX 的表達方式如下:</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"http://facebook.github.io/react/"</span>&gt;</span>Hello!<span class="tag">&lt;/<span class="title">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>我們發現用這種的方式能更方便建構 React 應用程式, 而設計師也比較不會排斥, 但每個人都有屬於自已習慣的工作流程, 所以 <strong>JSX 並不是使用 React 的必要選項</strong></p>
+<p>若要對 JSX 了解更多, 可以看看 <a href="http://facebook.github.io/react/docs/jsx-in-depth.html" target="_blank" rel="external">JSX in depth</a>, 或是試試我們的 <a href="http://facebook.github.io/react/jsx-compiler.html" target="_blank" rel="external">JSX 線上編譯器</a></p>
+<p>JSX 很像是 HTML, 但畢竟它們並不完全相同, 想要了解它們之間關鍵的差別可以看看 <a href="http://facebook.github.io/react/docs/jsx-gotchas.html" target="_blank" rel="external">JSX gotchas</a> 這篇.</p>
+<h5 id="React_without_JSX">React without JSX</h5><figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// React Element</span></span><br><span class="line"><span class="keyword">var</span> child = React.createElement(<span class="string">'li'</span>, <span class="keyword">null</span>, <span class="string">'Text Content'</span>);</span><br><span class="line"><span class="keyword">var</span> root = React.createElement(<span class="string">'ul'</span>, &#123;className: <span class="string">'my-list'</span>&#125;, child);</span><br><span class="line">React.render(root, <span class="built_in">document</span>.body);</span><br></pre></td></tr></table></figure>
+<p>基於便利性, 你可以使用 factory function 從 custom components 建立 React elements:</p>
+<figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="reserved">var</span> Factory = React.createFactory(ComponentClass);</span><br><span class="line">...</span><br><span class="line"><span class="reserved">var</span> root = Factory(&#123;<span class="attribute">custom</span>: <span class="string">'prop'</span>&#125;);</span><br><span class="line">React.render(root, <span class="built_in">document</span>.body);</span><br></pre></td></tr></table></figure>
+<p>React 已經內建常用的 HTML tag factories:</p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> root = <span class="type">React</span>.<span class="type">DOM</span>.ul(</span><br><span class="line">	<span class="comment">// props</span></span><br><span class="line">    &#123;className: <span class="symbol">'my</span>-list&#125;,</span><br><span class="line">    <span class="comment">// child</span></span><br><span class="line">	<span class="type">React</span>.<span class="type">DOM</span>.li(<span class="literal">null</span>, <span class="symbol">'Text</span> <span class="type">COntent</span>)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<h5 id="線上轉換">線上轉換</h5><p>JSX 是一種可以在 javascript 中使用 XML <a href="http://facebook.github.io/react/docs/jsx-in-depth.html" target="_blank" rel="external">語法</a>的語言, 搭配 <code>JSXTransformer.js</code> 你可以直接在 HTML 中使用 &lt;script type=”text/jsx”&gt; 的區塊直接編寫 JSX 或是外部引入.</p>
+<p><code>hellowworld.js</code>:<br><figure class="highlight openscad"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">React.<span class="built_in">render</span><span class="params">(</span><br><span class="line">	&lt;h1&gt;Hello, world!&lt;/h1&gt;,</span><br><span class="line">    document.getElementById<span class="params">('example')</span></span><br><span class="line">)</span>;</span><br></pre></td></tr></table></figure></p>
+<p><code>helloworld.html</code>:<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/jsx"</span> <span class="attribute">src</span>=<span class="value">"helloworld.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>我們強烈建議不要在正式環境使用這樣的方式, 而應改用命令工具 <a href="http://npmjs.org/package/react-tools" target="_blank" rel="external">react-tools</a> 將 JXS 預編譯<code>(precompile)</code>為 javascript code.</p>
+</blockquote>
+<h5 id="離線轉換">離線轉換</h5><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm <span class="keyword">install</span> -g react-tools</span><br></pre></td></tr></table></figure>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jsx <span class="comment">--watch src/ build/</span></span><br></pre></td></tr></table></figure>
+<h3 id="Displaying_Data">Displaying Data</h3><h5 id="Reactive_Updates_反應的改變">Reactive Updates 反應的改變</h5><p>在以下這個範例你會發現, React 只會改變這個組件中顯示時間的部分, 你在輸入框所輸入的任何東西都不會受到刷新的影響, 而你根本沒有編寫任何的程式來管理這個行為. React 讓你可以專注做你要做的事件而不用分心在一些無關的機制處理.</p>
+<p>React 能做到這點是因為它除非不得已不會直接更動 DOM 來維護呈現的內容. React 使用一個快速, 內部模擬的 VDOM 來差異化計算 DOM 的變動.</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="doctype">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">html</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">title</span>&gt;</span>Hello React<span class="tag">&lt;/<span class="title">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"http://fb.me/react-0.12.1.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"http://fb.me/JSXTransformer-0.12.1.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="title">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"example"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/jsx"</span>&gt;</span><span class="http"></span><br><span class="line"></span><br><span class="line"><span class="gherkin">      // <span class="keyword">*</span><span class="keyword">*</span> Your code goes here! <span class="keyword">*</span><span class="keyword">*</span></span><br><span class="line"></span><br><span class="line">    </span></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>組件的輸入參數被命名為 <code>props</code> (“properties” 的簡寫), 透過 JSX 的語法被像是 attributes 定義的方式傳遞進來. 你應該把它們想成是一個組件不變的資料, 意即, 應永遠不改寫 props 的資料. <code>this.props</code></p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> HelloWorld = React.createClass(&#123;</span><br><span class="line">  render: <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      &lt;p&gt;</span><br><span class="line">        Hello, &lt;input type=<span class="string">"text"</span> placeholder=<span class="string">"Your name here"</span> /&gt;!</span><br><span class="line">        It <span class="keyword">is</span> &#123;<span class="keyword">this</span>.props.date.toTimeString()&#125;</span><br><span class="line">      &lt;/p&gt;</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">setInterval(<span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  React.render(</span><br><span class="line">    &lt;HelloWorld date=&#123;<span class="keyword">new</span> Date()&#125; /&gt;,</span><br><span class="line">    document.getElementById(<span class="string">'example'</span>)</span><br><span class="line">  );</span><br><span class="line">&#125;, <span class="number">500</span>);</span><br></pre></td></tr></table></figure>
+<h5 id="Components_are_Just_Like_Functions">Components are Just Like Functions</h5><p>React 的組件相當簡易. 你可以把它們想成就像是一個有 <code>props</code> 和 <code>state</code> 屬性和 render HTML 方法的 function. 因為它們是如此簡單, 使得它們的程式碼容易閱讀.</p>
+<blockquote>
+<p>限制:</p>
+<p>React 的組件只能 render 一個根節點(root node)的結構, 如果你的內容是多節點的, 那它們必須要用一個根節點將它們包(wrap)起來.</p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2015/07/07/React-Day-1-Getting-Started/" data-id="cicklvp6m0011hovo1yky7rgv" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React-js/">React.js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/07/07/React-Day-2-JSX-in-Depth/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          React Day 2 - JSX in Depth
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/07/01/link-test/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">link-test</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Atom/">Atom</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DNS/">DNS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MacOS/">MacOS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PaaS/">PaaS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React-js/">React.js</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SSL/">SSL</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Time-Management/">Time Management</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Typography/">Typography</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cURL/">cURL</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dokku/">dokku</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a><span class="tag-list-count">5</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Atom/" style="font-size: 10px;">Atom</a> <a href="/tags/DNS/" style="font-size: 10px;">DNS</a> <a href="/tags/MacOS/" style="font-size: 10px;">MacOS</a> <a href="/tags/PaaS/" style="font-size: 10px;">PaaS</a> <a href="/tags/React-js/" style="font-size: 20px;">React.js</a> <a href="/tags/SSL/" style="font-size: 10px;">SSL</a> <a href="/tags/Time-Management/" style="font-size: 10px;">Time Management</a> <a href="/tags/Typography/" style="font-size: 10px;">Typography</a> <a href="/tags/cURL/" style="font-size: 10px;">cURL</a> <a href="/tags/dokku/" style="font-size: 10px;">dokku</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a><span class="archive-list-count">3</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2015/07/26/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2015/07/25/Getting-Things-Done/">Getting Things Done</a>
+          </li>
+        
+          <li>
+            <a href="/2015/07/23/Testing-Your-Website-to-Check-If-It-is-Accessible-from-China/">Testing Your Website to Check If It is Accessible from China</a>
+          </li>
+        
+          <li>
+            <a href="/2015/07/18/cURL-SSLRead-error-on-MacOS-Yosemite/">cURL SSLRead() error on MacOS Yosemite</a>
+          </li>
+        
+          <li>
+            <a href="/2015/07/08/Reading-list-for-Typography/">Reading list for Typography</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2015 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+
+
+<script src="/js/script.js" type="text/javascript"></script>
+
+  </div>
+</body>
+</html>

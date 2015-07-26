@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>React Day 4 - Multiple Components | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="我們已經學習如何編寫一個組件可以顯示資料並且能夠處理使用者的操作, 接下來, 讓我們展示 React 最棒的特色: 組合性.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="React Day 4 - Multiple Components">
+<meta property="og:url" content="http://yoursite.com/2015/07/07/React-Day-4-Multiple-Components/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="我們已經學習如何編寫一個組件可以顯示資料並且能夠處理使用者的操作, 接下來, 讓我們展示 React 最棒的特色: 組合性.">
+<meta property="og:updated_time" content="2015-07-08T12:54:41.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="React Day 4 - Multiple Components">
+<meta name="twitter:description" content="我們已經學習如何編寫一個組件可以顯示資料並且能夠處理使用者的操作, 接下來, 讓我們展示 React 最棒的特色: 組合性.">
+  
+    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  
+
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-React-Day-4-Multiple-Components" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/07/07/React-Day-4-Multiple-Components/" class="article-date">
+  <time datetime="2015-07-07T05:49:34.000Z" itemprop="datePublished">2015-07-07</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      React Day 4 - Multiple Components
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>我們已經學習如何編寫一個組件可以顯示資料並且能夠處理使用者的操作, 接下來, 讓我們展示 React 最棒的特色: 組合性.</p>
+<a id="more"></a>
+<h3 id="動機:_劃分職責">動機: 劃分職責</h3><p>透過建構模組化的組件能讓我們重覆利用被定義清楚的界面, 你可以使用 functions 或是 classes 來得到很多像這樣的好處. 特別是你可以透過建立新的組件時, 拆分在應用程式中不同的職責. 透過為你的應用程式建構自訂的組件庫的同時, 你將能以一種最貼切的方式表達使用者界面.</p>
+<p>讓我們開始簡單地建立一個透過 Facebook Graph API 顯示使用者的代表圖片和名稱的大頭照組件:</p>
+<h5 id="Composition_Example">Composition Example</h5><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> Avatar = React.createClass(&#123;</span><br><span class="line">  render: <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      &lt;div&gt;</span><br><span class="line">        &lt;ProfilePic username=&#123;<span class="keyword">this</span>.props.username&#125; /&gt;</span><br><span class="line">        &lt;ProfileLink username=&#123;<span class="keyword">this</span>.props.username&#125; /&gt;</span><br><span class="line">      &lt;/div&gt;</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> ProfilePic = React.createClass(&#123;</span><br><span class="line">  render: <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      &lt;img src=&#123;<span class="string">'http://graph.facebook.com/'</span> + <span class="keyword">this</span>.props.username + <span class="string">'/picture'</span>&#125; /&gt;</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> ProfileLink = React.createClass(&#123;</span><br><span class="line">  render: <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      &lt;a href=&#123;<span class="string">'http://www.facebook.com/'</span> + <span class="keyword">this</span>.props.username&#125;&gt;</span><br><span class="line">        &#123;<span class="keyword">this</span>.props.username&#125;</span><br><span class="line">      &lt;/a&gt;</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">React.render(</span><br><span class="line">  &lt;Avatar username=<span class="string">"pwh"</span> /&gt;,</span><br><span class="line">  document.getElementById(<span class="string">'example'</span>)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<h3 id="Ownership">Ownership</h3><p>在上面這個範例中, <code>Avatar</code> 這個實例 (instance) 擁有 <code>ProfilePic</code> 和 <code>ProfileLink</code> 的實例. 在 React 中, 一個組件擁有者 (owner) 代表著一個可以設定 <code>props</code> 給其它組件的組件. 更正確地說, 如果一個組件 <code>x</code> 從組件 <code>y</code> 的 <code>render()</code> 方法中被建立, 就是指 <code>x</code> 被 <code>y</code> 所擁有. 簡單地說, 一個組件不能自己改變 <code>props</code> 的值, 都是透過它們的擁有者 (owner) 設定以保持界面的一致性. 這是 property 讓各界面能夠確保一致性的關鍵.</p>
+<h3 id="Children">Children</h3><p>當你建立一個 React 組件實例時, 你可以像這樣在 tag 開頭和結尾中加入額外的 React 組件或是 Javascript 表達式:</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;Parent&gt;</span><span class="tag">&lt;Child /&gt;</span><span class="tag">&lt;/Parent&gt;</span></span><br></pre></td></tr></table></figure>
+<p><code>Parent</code> 可以透過存取一個特別的 <code>this.props.children</code> prop 來讀取它的子元素.</p>
+<p>由於 <code>this.props.children</code> 是一個不透明的資料結構, 你可以使用 <a href="http://facebook.github.io/react/docs/top-level-api.html#react.children" target="_blank" rel="external">React.Children 工具</a> 來操作它們.</p>
+<ul>
+<li><p>React.Children.map</p>
+  <figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">object</span> React<span class="class">.Children</span><span class="class">.map</span>(<span class="tag">object</span> children, function fn [, <span class="tag">object</span> context])</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>React.Children.forEach</p>
+  <figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">React<span class="class">.Children</span><span class="class">.forEach</span>(<span class="tag">object</span> children, function fn [, <span class="tag">object</span> context])</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>React.Children.count</p>
+  <figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">number React<span class="class">.Children</span><span class="class">.count</span>(<span class="tag">object</span> children)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>React.Children.only</p>
+  <figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">object</span> React<span class="class">.Children</span><span class="class">.only</span>(<span class="tag">object</span> children)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h5 id="Child_Reconciliation">Child Reconciliation</h5><p><strong>子元素的調節是一種當 React 在每一個新的 render 傳遞中更動 DOM 的處理過程</strong></p>
+<p>一般來說, 子元素依據它們被呈現的排列順序所調節, 舉例來說, 假設有兩個 render passes 產生這樣子的片段:</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">// Render Pass 1</span><br><span class="line"><span class="tag">&lt;<span class="title">Card</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">p</span>&gt;</span>Paragraph 1<span class="tag">&lt;/<span class="title">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">p</span>&gt;</span>Paragraph 2<span class="tag">&lt;/<span class="title">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">Card</span>&gt;</span></span><br><span class="line"></span><br><span class="line">// Render Pass 2</span><br><span class="line"><span class="tag">&lt;<span class="title">Card</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">p</span>&gt;</span>Paragraph 2<span class="tag">&lt;/<span class="title">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">Card</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>看起來是 <code>&lt;p&gt;Paragraph 1&lt;/p&gt;</code> 被移除了. 但相反地, React 的 DOM 調節是將第一個元素的文字改變, 然後移除掉最後一個元素. React 的調節是依據子元素的排列順序.</p>
+<h5 id="Stateful_Children">Stateful Children</h5><p>對大部分的組件而言這不是一個大問題, 然而, 對於有狀態的組件來說, 要維護那些在 render 階段被傳遞的 <code>this.state</code> 資料將會是一件很麻煩的事.</p>
+<p>在大部分的時候, 要避免用隱藏元素代替銷毀它的這種方法:</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- Render Pass 1 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">Card</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">p</span>&gt;</span>Paragraph 1<span class="tag">&lt;/<span class="title">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">p</span>&gt;</span>Paragraph 2<span class="tag">&lt;/<span class="title">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">Card</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- Render Pass 2 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">Card</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">p</span> <span class="attribute">style</span>=<span class="value">&amp;#123;&amp;#123;display:</span> '<span class="attribute">none</span>'&#125;&#125;&gt;</span>Paragraph 1<span class="tag">&lt;/<span class="title">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">p</span>&gt;</span>Paragraph 2<span class="tag">&lt;/<span class="title">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">Card</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h5 id="Dynamic_Children">Dynamic Children</h5><p>當遇到子元素經常變動的這種情形(像搜尋結果), 或是當新的組件被安插進列表中的最前面(像是 streams), 這使得界面的開發更複雜了一些. 在這種情況下, 必須給予每一個子元素一個識別 (identity) 才能在渲染過程 (render) 中維護他們的狀態. 為每一個子元素加上一個叫作 <code>key</code> 的 prop:</p>
+<figure class="highlight nimrod"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">render: function() &#123;</span><br><span class="line"><span class="keyword">var</span> results = this.props.results;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;ol&gt;</span><br><span class="line">    &#123;results.map(function(<span class="literal">result</span>) &#123;</span><br><span class="line">    	<span class="keyword">return</span> &lt;li key=&#123;<span class="literal">result</span>.id&#125;&gt;&#123;<span class="literal">result</span>.text&#125;&lt;/li&gt;;</span><br><span class="line">    &#125;)&#125;</span><br><span class="line">    &lt;/ol&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>當 React 調節那些被標記的子元素時, 會確保被標記的所有子元素都會被記錄或銷毁.</p>
+<p>這個唯一識別 <code>key</code> 應該要從某個陣列中直接帶入到組件 (component) 中, 而不是放在 HTML 子元素 (child) 裡.</p>
+<figure class="highlight nimrod"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">// <span class="type">WRONG</span>!</span><br><span class="line"><span class="keyword">var</span> <span class="type">ListItemWrapper</span> = <span class="type">React</span>.createClass(&#123;</span><br><span class="line">  render: function() &#123;</span><br><span class="line">    <span class="keyword">return</span> &lt;li key=&#123;this.props.data.id&#125;&gt;&#123;this.props.data.text&#125;&lt;/li&gt;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="keyword">var</span> <span class="type">MyComponent</span> = <span class="type">React</span>.createClass(&#123;</span><br><span class="line">  render: function() &#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      &lt;ul&gt;</span><br><span class="line">        &#123;this.props.results.map(function(<span class="literal">result</span>) &#123;</span><br><span class="line">          <span class="keyword">return</span> &lt;<span class="type">ListItemWrapper</span> data=&#123;<span class="literal">result</span>&#125;/&gt;;</span><br><span class="line">        &#125;)&#125;</span><br><span class="line">      &lt;/ul&gt;</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">// <span class="type">Correct</span> :)</span><br><span class="line"><span class="keyword">var</span> <span class="type">ListItemWrapper</span> = <span class="type">React</span>.createClass(&#123;</span><br><span class="line">  render: function() &#123;</span><br><span class="line">    <span class="keyword">return</span> &lt;li&gt;&#123;this.props.data.text&#125;&lt;/li&gt;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="keyword">var</span> <span class="type">MyComponent</span> = <span class="type">React</span>.createClass(&#123;</span><br><span class="line">  render: function() &#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      &lt;ul&gt;</span><br><span class="line">        &#123;this.props.results.map(function(<span class="literal">result</span>) &#123;</span><br><span class="line">           <span class="keyword">return</span> &lt;<span class="type">ListItemWrapper</span> key=&#123;<span class="literal">result</span>.id&#125; data=&#123;<span class="literal">result</span>&#125;/&gt;;</span><br><span class="line">        &#125;)&#125;</span><br><span class="line">      &lt;/ul&gt;</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>你也可以直接用物件的方式來標識子元素, 物件的索引將會被用來當作 <code>key</code> 的值. 不過在這裡有一件很重要的事需要提醒一下, Javascript 並不能確保能夠保存 properties 的排序. 在瀏覽器中除非能用 32-bit unsigned integers 才能保存 property 的排序. 數字型的 properties 會依據大小排列在其它 properties 之前. 如果發生 React render 組件的排序問題, 為 <code>key</code> 加上 <code>prefix</code> 可以解決:</p>
+<figure class="highlight nimrod"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">render: function() &#123;</span><br><span class="line">  <span class="keyword">var</span> items = &#123;&#125;;</span><br><span class="line"></span><br><span class="line">  this.props.results.forEach(function(<span class="literal">result</span>) &#123;</span><br><span class="line">      // <span class="type">If</span> <span class="literal">result</span>.id can look like a number (consider short hashes), then</span><br><span class="line">      // <span class="keyword">object</span> iteration order <span class="keyword">is</span> <span class="keyword">not</span> guaranteed. <span class="type">In</span> this <span class="keyword">case</span>, we add a prefix</span><br><span class="line">      // to ensure the keys are strings.</span><br><span class="line">      items['<span class="literal">result</span>-' + <span class="literal">result</span>.id] = &lt;li&gt;&#123;<span class="literal">result</span>.text&#125;&lt;/li&gt;;</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;ol&gt;</span><br><span class="line">      &#123;items&#125;</span><br><span class="line">    &lt;/ol&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="Data_Flow">Data Flow</h5><p>在 React 中, 資料流如之前所說的透過 <code>props</code> 從擁有者 (owner) 傳遞到被擁有的組件. 這是有效的單向綁定: 擁有者用自己的 <code>props</code> 或是 <code>state</code>, 經由計算後產生出的某個值, 將其綁定成被擁有組件的 <code>props</code>. 因為這個處理會遞迴地發生, 在任何有使用資料的地方都會自動地反映改變後的結果.</p>
+<h5 id="A_Note_on_Performance">A Note on Performance</h5><p>你可能會想一個擁有者 (owner) 底下如果有大量的結點會造成 React 花費很高的資源來改變資料. 好消息是 Javascript 的速度相當快, 而且 <code>render()</code> 方法也夠簡單, 所以在大部分的應用仍能表現出色. 此外, 效能的瓶頸大部分都是來自於 DOM 的修改而不是 Javascript 的執行, React 會透過批量操作和變動偵測幫你做到最佳化的處理.</p>
+<p>然而, 有時候你會想要有效率地且細膩的控制. 在這種情況, 可以簡單地覆寫 <code>shouldComponentUpdate()</code> 這個方法並在你想要 React 略過子樹 (subtree) 處理時回傳一個 <code>false</code> 值. 請見 <a href="http://facebook.github.io/react/docs/component-specs.html#updating-shouldcomponentupdate" target="_blank" rel="external">React reference docs</a> 了解更多相關的資訊.</p>
+<blockquote>
+<p>注意:</p>
+<p>如果當資料確實改變了但 shouldComponentUpdate() 卻回傳 false 值, React 會無法同步你的使用者界面. 請確保你了解後再使用這個方法, 並且只在當有明顯的效能問題時才去用到它. 不要因為 Javascript 比 DOM 快很多而掉以輕心.</p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2015/07/07/React-Day-4-Multiple-Components/" data-id="cicklvp6d000shovo98wpusav" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React-js/">React.js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/07/07/React-Day-5-Reusable-Components/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          React Day 5 - Reusable Components
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/07/07/React-Day-3-Interactivity-and-Dynamic-UIs/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">React Day 3 - Interactivity and Dynamic UIs</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Atom/">Atom</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DNS/">DNS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MacOS/">MacOS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PaaS/">PaaS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React-js/">React.js</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SSL/">SSL</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Time-Management/">Time Management</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Typography/">Typography</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cURL/">cURL</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dokku/">dokku</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a><span class="tag-list-count">5</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Atom/" style="font-size: 10px;">Atom</a> <a href="/tags/DNS/" style="font-size: 10px;">DNS</a> <a href="/tags/MacOS/" style="font-size: 10px;">MacOS</a> <a href="/tags/PaaS/" style="font-size: 10px;">PaaS</a> <a href="/tags/React-js/" style="font-size: 20px;">React.js</a> <a href="/tags/SSL/" style="font-size: 10px;">SSL</a> <a href="/tags/Time-Management/" style="font-size: 10px;">Time Management</a> <a href="/tags/Typography/" style="font-size: 10px;">Typography</a> <a href="/tags/cURL/" style="font-size: 10px;">cURL</a> <a href="/tags/dokku/" style="font-size: 10px;">dokku</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a><span class="archive-list-count">3</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2015/07/26/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2015/07/25/Getting-Things-Done/">Getting Things Done</a>
+          </li>
+        
+          <li>
+            <a href="/2015/07/23/Testing-Your-Website-to-Check-If-It-is-Accessible-from-China/">Testing Your Website to Check If It is Accessible from China</a>
+          </li>
+        
+          <li>
+            <a href="/2015/07/18/cURL-SSLRead-error-on-MacOS-Yosemite/">cURL SSLRead() error on MacOS Yosemite</a>
+          </li>
+        
+          <li>
+            <a href="/2015/07/08/Reading-list-for-Typography/">Reading list for Typography</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2015 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+
+
+<script src="/js/script.js" type="text/javascript"></script>
+
+  </div>
+</body>
+</html>
