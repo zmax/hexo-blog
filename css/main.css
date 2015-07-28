@@ -186,7 +186,7 @@ th {
 body {
   position: relative;
   font-family: Lato, "Microsoft Jhenghei", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
-  font-size: 16px;
+  font-size: 18px;
   line-height: 1.8;
   color: #555;
   background: #fff;
@@ -673,7 +673,7 @@ td {
   overflow: auto;
   font-size: 13px;
   color: #4d4d4c;
-  line-height: 1.2;
+  line-height: 1.5;
 }
 .post .highlight .gutter pre,
 .post .gist .gist-file .gist-data .line-numbers {
@@ -1077,6 +1077,11 @@ body {
   height: auto;
   border: 2px solid #333;
   padding: 2px;
+/* support Safari, Chrome */
+  -webkit-border-radius: 60px;
+/* support firefox */
+  -moz-border-radius: 60px;
+  border-radius: 60px;
 }
 .site-author-name {
   margin: 5px 0 0;
@@ -1150,7 +1155,7 @@ body {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #b0ec59;
+  background: #36ff37;
 }
 .sidebar-nav {
   margin: 0;
