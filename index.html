@@ -154,6 +154,75 @@
           
           
             
+              <a class="post-title-link" href="/hexo-blog/2015/09/06/Mysql-error-too-many-open-files/" itemprop="url">
+                Mysql error: too many open files
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          發表於
+          <time itemprop="dateCreated" datetime="2015-09-06T10:34:38+08:00" content="2015-09-06">
+            2015-09-06
+          </time>
+        </span>
+
+        
+
+        
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody"><p>Open file: <code>/etc/security/limits.conf</code>:<br><figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">*         </span>hard    nofile      500000</span><br><span class="line"><span class="bullet">*         </span>soft    nofile      500000</span><br><span class="line">root      hard    nofile      500000</span><br><span class="line">root      soft    nofile      500000</span><br></pre></td></tr></table></figure></p>
+<p>Open file: <code>/etc/mysql/my.cnf</code>:<br><figure class="highlight dns"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">open-files-limit        = <span class="number">1024000</span></span><br><span class="line">open_files_limit        = <span class="number">1024000</span></span><br></pre></td></tr></table></figure></p>
+<p>Restart Mysql:<br><code>sudo service mysql restart</code></p>
+<h5 id="References">References</h5><ul>
+<li><a href="http://duntuk.com/how-raise-ulimit-open-files-and-mysql-openfileslimit" target="_blank" rel="external">How to permanently rase ulimit ‘open files’ and MySQL ‘open_files_limit’</a></li>
+<li><a href="https://rtcamp.com/tutorials/linux/increase-open-files-limit/" target="_blank" rel="external">Increase open files limit</a></li>
+<li><a href="http://ubuntuforums.org/showthread.php?t=1361506" target="_blank" rel="external">How to solve this “Checking for corrupt, not cleanly closed and upgrade needing table”</a></li>
+</ul>
+</span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
               <a class="post-title-link" href="/hexo-blog/2015/07/25/Getting-Things-Done/" itemprop="url">
                 Getting Things Done
               </a>
@@ -293,7 +362,7 @@
 <li><code>20-45</code> 分鐘，是我們心智活動的有效時間。</li>
 <li>理想的番茄鐘長度應為 <code>20-35</code> 分之間，最多 <code>40</code> 分。經驗上來看，<code>30</code> 分為周期的表現最佳。</li>
 <li>休息時間不短於 <code>3-5</code> 分，不超過 <code>5-10</code> 分。若完成一組番茄鐘，可休息 <code>15-30</code> 分。</li>
-<li>了解規則背後的動機，慢慢找出自己適用的長度與節奏。</li>
+<li>了解規則背後的動機，慢慢找出自己適用的長度與節奏。(排序 -&gt; 專注 -&gt; 休息 -&gt; 排序 …)</li>
 <li>咔咔聲的信號。</li>
 <li>觀察自己如何工作。</li>
 <li>扭轉對時間的依賴。</li>
@@ -434,6 +503,7 @@
         
           <span itemprop="articleBody"><p>檢查目前 PHP 是用什麼 SSL 版本<br><code>php -i | grep &quot;SSL Version&quot;</code></p>
 <p>如果結果如下:<br><figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SSL Version =&gt; SecureTransport</span><br></pre></td></tr></table></figure></p>
+<p>安裝 curl:<br><code>brew install --with-openssl curl</code></p>
 <p>重新安裝 PHP<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">brew <span class="operator"><span class="keyword">uninstall</span> php55</span><br><span class="line">brew <span class="keyword">install</span> <span class="comment">--with-homebrew-curl --with-homebrew-openssl php55</span></span></span><br></pre></td></tr></table></figure></p>
 <p>再重覆第一步驟檢查 SSL 版本:</p>
 <figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ php -i <span class="string">| grep "</span>SSL Version<span class="string">"</span></span><br><span class="line">SSL Version =&gt; OpenSSL/<span class="number">1.0</span>.<span class="number">2</span>d</span><br></pre></td></tr></table></figure>
@@ -903,69 +973,6 @@
 
 
     
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            <a class="post-title-link post-title-link-external" target="_blank" href="http://google.com" itemprop="url">
-              link-test
-              <i class="icon-external-link"></i>
-            </a>
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          發表於
-          <time itemprop="dateCreated" datetime="2015-07-01T07:05:45+08:00" content="2015-07-01">
-            2015-07-01
-          </time>
-        </span>
-
-        
-
-        
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody"><blockquote>
-<p>Hello</p>
-</blockquote>
-</span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1005,7 +1012,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/hexo-blog/archives">
-              <span class="site-state-item-count">14</span>
+              <span class="site-state-item-count">15</span>
               <span class="site-state-item-name">文章</span>
             </a>
           </div>
@@ -1019,7 +1026,7 @@
 
           <div class="site-state-item site-state-tags">
             <a href="/hexo-blog/tags">
-              <span class="site-state-item-count">11</span>
+              <span class="site-state-item-count">12</span>
               <span class="site-state-item-name">標籤</span>
               </a>
           </div>

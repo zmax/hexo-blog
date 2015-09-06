@@ -41,23 +41,23 @@
 
 <meta name="description" content="檢查目前 PHP 是用什麼 SSL 版本php -i | grep &amp;quot;SSL Version&amp;quot;
 如果結果如下:1SSL Version =&amp;gt; SecureTransport
-重新安裝 PHP12brew uninstall php55brew install --with-homebrew-curl --with-homebrew-openssl php55
-再重覆第一步">
+安裝 curl:brew install --with-openssl curl
+重新安裝 PHP12brew uninstall php55brew install --with-homebrew-">
 <meta property="og:type" content="article">
 <meta property="og:title" content="cURL SSLRead() error on MacOS Yosemite">
 <meta property="og:url" content="http://zmax.github.io/2015/07/18/cURL-SSLRead-error-on-MacOS-Yosemite/index.html">
 <meta property="og:site_name" content="Starck Lin">
 <meta property="og:description" content="檢查目前 PHP 是用什麼 SSL 版本php -i | grep &amp;quot;SSL Version&amp;quot;
 如果結果如下:1SSL Version =&amp;gt; SecureTransport
-重新安裝 PHP12brew uninstall php55brew install --with-homebrew-curl --with-homebrew-openssl php55
-再重覆第一步">
-<meta property="og:updated_time" content="2015-07-18T17:25:33.000Z">
+安裝 curl:brew install --with-openssl curl
+重新安裝 PHP12brew uninstall php55brew install --with-homebrew-">
+<meta property="og:updated_time" content="2015-08-23T23:36:26.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="cURL SSLRead() error on MacOS Yosemite">
 <meta name="twitter:description" content="檢查目前 PHP 是用什麼 SSL 版本php -i | grep &amp;quot;SSL Version&amp;quot;
 如果結果如下:1SSL Version =&amp;gt; SecureTransport
-重新安裝 PHP12brew uninstall php55brew install --with-homebrew-curl --with-homebrew-openssl php55
-再重覆第一步">
+安裝 curl:brew install --with-openssl curl
+重新安裝 PHP12brew uninstall php55brew install --with-homebrew-">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -192,6 +192,7 @@
       
         <span itemprop="articleBody"><p>檢查目前 PHP 是用什麼 SSL 版本<br><code>php -i | grep &quot;SSL Version&quot;</code></p>
 <p>如果結果如下:<br><figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SSL Version =&gt; SecureTransport</span><br></pre></td></tr></table></figure></p>
+<p>安裝 curl:<br><code>brew install --with-openssl curl</code></p>
 <p>重新安裝 PHP<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">brew <span class="operator"><span class="keyword">uninstall</span> php55</span><br><span class="line">brew <span class="keyword">install</span> <span class="comment">--with-homebrew-curl --with-homebrew-openssl php55</span></span></span><br></pre></td></tr></table></figure></p>
 <p>再重覆第一步驟檢查 SSL 版本:</p>
 <figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ php -i <span class="string">| grep "</span>SSL Version<span class="string">"</span></span><br><span class="line">SSL Version =&gt; OpenSSL/<span class="number">1.0</span>.<span class="number">2</span>d</span><br></pre></td></tr></table></figure>
@@ -290,7 +291,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/hexo-blog/archives">
-              <span class="site-state-item-count">14</span>
+              <span class="site-state-item-count">15</span>
               <span class="site-state-item-name">文章</span>
             </a>
           </div>
@@ -304,7 +305,7 @@
 
           <div class="site-state-item site-state-tags">
             <a href="/hexo-blog/tags">
-              <span class="site-state-item-count">11</span>
+              <span class="site-state-item-count">12</span>
               <span class="site-state-item-name">標籤</span>
               </a>
           </div>

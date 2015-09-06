@@ -30,7 +30,7 @@
 
 
 
-  <meta name="keywords" content="DNS," />
+  <meta name="keywords" content="mysql," />
 
 
 
@@ -39,40 +39,19 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.4" />
 
 
-<meta name="description" content="測試網站是否有被中國的防火牆阻擋，或是檢測在中國內地的連線品質狀態，可以使用以下這些服務：
-
-Website Test behind the Great Firewall of China
-
-奇云測
-
-阿里測
-
-站長工具">
+<meta name="description" content="Open file: /etc/security/limits.conf:1234*         hard    nofile      500000*         soft    nofile      500000root      hard    nofile      500000root      soft    nofile      500000
+Open file: /et">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Testing Your Website to Check If It is Accessible from China">
-<meta property="og:url" content="http://zmax.github.io/2015/07/23/Testing-Your-Website-to-Check-If-It-is-Accessible-from-China/index.html">
+<meta property="og:title" content="Mysql error: too many open files">
+<meta property="og:url" content="http://zmax.github.io/2015/09/06/Mysql-error-too-many-open-files/index.html">
 <meta property="og:site_name" content="Starck Lin">
-<meta property="og:description" content="測試網站是否有被中國的防火牆阻擋，或是檢測在中國內地的連線品質狀態，可以使用以下這些服務：
-
-Website Test behind the Great Firewall of China
-
-奇云測
-
-阿里測
-
-站長工具">
-<meta property="og:updated_time" content="2015-07-24T22:43:28.000Z">
+<meta property="og:description" content="Open file: /etc/security/limits.conf:1234*         hard    nofile      500000*         soft    nofile      500000root      hard    nofile      500000root      soft    nofile      500000
+Open file: /et">
+<meta property="og:updated_time" content="2015-09-06T02:39:05.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Testing Your Website to Check If It is Accessible from China">
-<meta name="twitter:description" content="測試網站是否有被中國的防火牆阻擋，或是檢測在中國內地的連線品質狀態，可以使用以下這些服務：
-
-Website Test behind the Great Firewall of China
-
-奇云測
-
-阿里測
-
-站長工具">
+<meta name="twitter:title" content="Mysql error: too many open files">
+<meta name="twitter:description" content="Open file: /etc/security/limits.conf:1234*         hard    nofile      500000*         soft    nofile      500000root      hard    nofile      500000root      soft    nofile      500000
+Open file: /et">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -82,7 +61,7 @@ Website Test behind the Great Firewall of China
   };
 </script>
 
-    <title> Testing Your Website to Check If It is Accessible from China // Starck Lin </title>
+    <title> Mysql error: too many open files // Starck Lin </title>
 </head>
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-TW">
 <!--[if lte IE 8]>
@@ -177,7 +156,7 @@ Website Test behind the Great Firewall of China
           
           
             
-              Testing Your Website to Check If It is Accessible from China
+              Mysql error: too many open files
             
           
         </h1>
@@ -186,8 +165,8 @@ Website Test behind the Great Firewall of China
       <div class="post-meta">
         <span class="post-time">
           發表於
-          <time itemprop="dateCreated" datetime="2015-07-23T03:23:52+08:00" content="2015-07-23">
-            2015-07-23
+          <time itemprop="dateCreated" datetime="2015-09-06T10:34:38+08:00" content="2015-09-06">
+            2015-09-06
           </time>
         </span>
 
@@ -205,16 +184,13 @@ Website Test behind the Great Firewall of China
       
 
       
-        <span itemprop="articleBody"><p>測試網站是否有被中國的防火牆阻擋，或是檢測在中國內地的連線品質狀態，可以使用以下這些服務：</p>
-<ul>
-<li><p><a href="http://www.websitepulse.com/help/testtools.china-test.html" target="_blank" rel="external">Website Test behind the Great Firewall of China</a></p>
-</li>
-<li><p><a href="http://ce.cloud.360.cn/" target="_blank" rel="external">奇云測</a></p>
-</li>
-<li><p><a href="http://www.alibench.com/" target="_blank" rel="external">阿里測</a></p>
-</li>
-<li><p><a href="http://ping.chinaz.com/" target="_blank" rel="external">站長工具</a></p>
-</li>
+        <span itemprop="articleBody"><p>Open file: <code>/etc/security/limits.conf</code>:<br><figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">*         </span>hard    nofile      500000</span><br><span class="line"><span class="bullet">*         </span>soft    nofile      500000</span><br><span class="line">root      hard    nofile      500000</span><br><span class="line">root      soft    nofile      500000</span><br></pre></td></tr></table></figure></p>
+<p>Open file: <code>/etc/mysql/my.cnf</code>:<br><figure class="highlight dns"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">open-files-limit        = <span class="number">1024000</span></span><br><span class="line">open_files_limit        = <span class="number">1024000</span></span><br></pre></td></tr></table></figure></p>
+<p>Restart Mysql:<br><code>sudo service mysql restart</code></p>
+<h5 id="References">References</h5><ul>
+<li><a href="http://duntuk.com/how-raise-ulimit-open-files-and-mysql-openfileslimit" target="_blank" rel="external">How to permanently rase ulimit ‘open files’ and MySQL ‘open_files_limit’</a></li>
+<li><a href="https://rtcamp.com/tutorials/linux/increase-open-files-limit/" target="_blank" rel="external">Increase open files limit</a></li>
+<li><a href="http://ubuntuforums.org/showthread.php?t=1361506" target="_blank" rel="external">How to solve this “Checking for corrupt, not cleanly closed and upgrade needing table”</a></li>
 </ul>
 </span>
       
@@ -224,7 +200,7 @@ Website Test behind the Great Firewall of China
       
         <div class="post-tags">
           
-            <a href="/hexo-blog/tags/DNS/" rel="tag">#DNS</a>
+            <a href="/hexo-blog/tags/mysql/" rel="tag">#mysql</a>
           
         </div>
       
@@ -233,13 +209,11 @@ Website Test behind the Great Firewall of China
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/hexo-blog/2015/07/25/Getting-Things-Done/" rel="prev">Getting Things Done</a>
-            
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/hexo-blog/2015/07/18/cURL-SSLRead-error-on-MacOS-Yosemite/" rel="next">cURL SSLRead() error on MacOS Yosemite</a>
+              <a href="/hexo-blog/2015/07/25/Getting-Things-Done/" rel="next">Getting Things Done</a>
             
           </div>
         </div>
@@ -344,7 +318,7 @@ Website Test behind the Great Firewall of China
           <div class="post-toc">
             
             
-              <p class="post-toc-empty">此文章未包含目錄</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#References"><span class="nav-number">1.</span> <span class="nav-text">References</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
