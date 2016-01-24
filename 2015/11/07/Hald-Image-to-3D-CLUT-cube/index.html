@@ -1,0 +1,583 @@
+<!doctype html>
+<html class="theme-next use-motion theme-next-mist">
+<head>
+    
+
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/hexo-blog/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
+
+
+
+  <link href='//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+
+
+<link rel="stylesheet" type="text/css" href="/hexo-blog/css/main.css?v=0.4.4"/>
+
+
+    <meta name="description" content="Art Director / Developer / Artisan" />
+
+
+
+  <meta name="keywords" content="CLUT," />
+
+
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.4" />
+
+
+<meta name="description" content="先安裝 Imagemagick 套件
+使用 convert 產生 Hald Color LUT (Look Up Table )
+convert hald:5 hald.png
+將會產生一張 5x5x5 的色彩速查圖 (Hald Image)
+我們可將這張圖用任何攝影軟體 (VSCO, Lightroom, Photoshop…等) 套用色彩效果後
+用以下這段 python 程式轉成 .cube">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hald Image to 3D CLUT (.cube)">
+<meta property="og:url" content="http://zmax.github.io/hexo-blog/2015/11/07/Hald-Image-to-3D-CLUT-cube/index.html">
+<meta property="og:site_name" content="Starck Lin">
+<meta property="og:description" content="先安裝 Imagemagick 套件
+使用 convert 產生 Hald Color LUT (Look Up Table )
+convert hald:5 hald.png
+將會產生一張 5x5x5 的色彩速查圖 (Hald Image)
+我們可將這張圖用任何攝影軟體 (VSCO, Lightroom, Photoshop…等) 套用色彩效果後
+用以下這段 python 程式轉成 .cube">
+<meta property="og:updated_time" content="2015-11-09T10:16:03.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hald Image to 3D CLUT (.cube)">
+<meta name="twitter:description" content="先安裝 Imagemagick 套件
+使用 convert 產生 Hald Color LUT (Look Up Table )
+convert hald:5 hald.png
+將會產生一張 5x5x5 的色彩速查圖 (Hald Image)
+我們可將這張圖用任何攝影軟體 (VSCO, Lightroom, Photoshop…等) 套用色彩效果後
+用以下這段 python 程式轉成 .cube">
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: 'post'
+  };
+</script>
+
+    <title> Hald Image to 3D CLUT (.cube) // Starck Lin </title>
+</head>
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-TW">
+<!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+
+
+
+
+<div class="container one-column page-post-detail">
+    <div class="headband"></div>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+        <div class="header-inner"><h1 class="site-meta">
+  <span class="logo-line-before"><i></i></span>
+  <a href="/hexo-blog/" class="brand" rel="start">
+      <span class="logo">
+        <i class="icon-logo"></i>
+      </span>
+      <span class="site-title">Starck Lin</span>
+  </a>
+  <span class="logo-line-after"><i></i></span>
+</h1>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/hexo-blog" rel="section">
+            <i class="menu-item-icon icon-home"></i> <br />
+            首頁
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/hexo-blog/archives" rel="section">
+            <i class="menu-item-icon icon-archives"></i> <br />
+            歸檔
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/hexo-blog/tags" rel="section">
+            <i class="menu-item-icon icon-tags"></i> <br />
+            標籤
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+        </div>
+    </header>
+
+    <main id="main" class="main">
+        <div class="main-inner">
+            <div id="content" class="content">
+                
+
+  <div id="posts" class="posts-expand">
+    
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              Hald Image to 3D CLUT (.cube)
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          發表於
+          <time itemprop="dateCreated" datetime="2015-11-07T15:38:38+08:00" content="2015-11-07">
+            2015-11-07
+          </time>
+        </span>
+
+        
+
+        
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <span itemprop="articleBody"><p>先安裝 Imagemagick 套件</p>
+<p>使用 <code>convert</code> 產生 Hald Color LUT (Look Up Table )</p>
+<p><code>convert hald:5 hald.png</code></p>
+<p>將會產生一張 5x5x5 的色彩速查圖 (Hald Image)</p>
+<p>我們可將這張圖用任何攝影軟體 (VSCO, Lightroom, Photoshop…等) 套用色彩效果後</p>
+<p>用以下這段 python 程式轉成 <code>.cube</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> __future__ <span class="keyword">import</span> print_function, division</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> math</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">from</span> optparse <span class="keyword">import</span> OptionParser</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span></span><br><span class="line"></span><br><span class="line">    opt_parser = OptionParser(usage=<span class="string">'%prog [options] input.png output.cube'</span>)</span><br><span class="line">    opts, args = opt_parser.parse_args()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> len(args) != <span class="number">2</span>:</span><br><span class="line">        opt_parser.print_usage()</span><br><span class="line">        exit(<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">    in_ = Image.open(args[<span class="number">0</span>])</span><br><span class="line">    w, h = in_.size</span><br><span class="line">    <span class="keyword">if</span> w != h:</span><br><span class="line">        print(<span class="string">'HALD input is not square.'</span>, file=sys.stderr)</span><br><span class="line">        exit(<span class="number">2</span>)</span><br><span class="line">    steps = int(round(math.pow(w, <span class="number">1</span>/<span class="number">3</span>)))</span><br><span class="line">    <span class="keyword">if</span> steps ** <span class="number">3</span> != w:</span><br><span class="line">        print(<span class="string">'HALD input size is invalid: %d is not a cube.'</span> % w, file=sys.stderr)</span><br><span class="line"></span><br><span class="line">    print(<span class="string">'%d steps -&gt; %d values'</span> % (steps, steps**<span class="number">6</span>), file=sys.stderr)</span><br><span class="line">    <span class="comment"># Assume that we are going from 8 bits to 10.</span></span><br><span class="line"></span><br><span class="line">    out = open(args[<span class="number">1</span>], <span class="string">'w'</span>)</span><br><span class="line">    <span class="comment"># out.write('#Created by: Adobe Photoshop CS6\n')</span></span><br><span class="line">    <span class="comment"># out.write('#Copyright: Copyright 2012 Adobe Systems Inc.\n')</span></span><br><span class="line">    out.write(<span class="string">'LUT_3D_SIZE %d\n'</span> % (steps ** <span class="number">2</span>))</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">False</span>:</span><br><span class="line">        steps1 = steps + <span class="number">1</span></span><br><span class="line">        steps3 = steps ** <span class="number">2</span> * (steps + <span class="number">1</span>)</span><br><span class="line">        steps5 = steps ** <span class="number">4</span> * (steps + <span class="number">1</span>)</span><br><span class="line">        data = list(in_.getdata())</span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">lookup</span><span class="params">(ri, gi, bi)</span>:</span></span><br><span class="line">            <span class="keyword">return</span> data[</span><br><span class="line">                ri * steps1 + gi * steps3 + bi * steps5</span><br><span class="line">            ]</span><br><span class="line">        <span class="keyword">for</span> bi <span class="keyword">in</span> xrange(steps):</span><br><span class="line">            <span class="keyword">for</span> gi <span class="keyword">in</span> xrange(steps):</span><br><span class="line">                <span class="keyword">for</span> ri <span class="keyword">in</span> xrange(steps):</span><br><span class="line">                    r, g, b = lookup(ri, gi, bi)[:<span class="number">3</span>]</span><br><span class="line">                    out.write(<span class="string">'%f %f %f\n'</span> % (r / <span class="number">255.0</span>, g / <span class="number">255.0</span>, b / <span class="number">255.0</span>))</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">for</span> pixel <span class="keyword">in</span> in_.getdata():</span><br><span class="line">            r, g, b = pixel[:<span class="number">3</span>]</span><br><span class="line">            out.write(<span class="string">'%f %f %f\n'</span> % (r / <span class="number">255.0</span>, g / <span class="number">255.0</span>, b / <span class="number">255.0</span>))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
+<p>或是用 node.js:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line">#!<span class="regexp">/usr/</span>bin/env node</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> getPixels = <span class="built_in">require</span>(<span class="string">"get-pixels"</span>),</span><br><span class="line">    fs = <span class="built_in">require</span>(<span class="string">'fs'</span>),</span><br><span class="line">    program = <span class="built_in">require</span>(<span class="string">'commander'</span>);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">haldToCube</span>(<span class="params">hald, output, creator, copyright</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// "identity.png"</span></span><br><span class="line">    getPixels(hald, <span class="function"><span class="keyword">function</span>(<span class="params">err, pixels</span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (err) &#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">"Bad image path"</span>);</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">var</span> nx = pixels.shape[<span class="number">0</span>],</span><br><span class="line">            ny = pixels.shape[<span class="number">1</span>],</span><br><span class="line">            index = <span class="number">0</span>, r = <span class="number">0</span>, g = <span class="number">0</span>, b = <span class="number">0</span>, steps = <span class="number">0</span>, stream;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (nx != ny) &#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">"Hald Image is not square."</span>);</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        steps = <span class="built_in">parseInt</span>(<span class="built_in">Math</span>.round(<span class="built_in">Math</span>.pow(nx, <span class="number">1</span>/<span class="number">3</span>)));</span><br><span class="line"></span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"got pixels"</span>, pixels.shape.slice());</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"steps: "</span>, steps);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// "test.cube"</span></span><br><span class="line">        stream = fs.createWriteStream(output);</span><br><span class="line">        stream.once(<span class="string">'open'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">fd</span>) </span>&#123;</span><br><span class="line">            <span class="keyword">if</span> (creator) stream.write(<span class="string">"#Created by: "</span> + creator + <span class="string">"\n"</span>);</span><br><span class="line">            <span class="keyword">if</span> (copyright) stream.write(<span class="string">"#Copyright: "</span> + copyright + <span class="string">"\n"</span>)</span><br><span class="line">            stream.write(<span class="string">'LUT_3D_SIZE '</span> + (steps * steps) + <span class="string">"\n\n"</span>);</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">var</span> dx=<span class="number">0</span>; dx&lt;nx; dx++) &#123;</span><br><span class="line">                <span class="keyword">for</span>(<span class="keyword">var</span> dy=<span class="number">0</span>; dy&lt;ny; dy++) &#123;</span><br><span class="line">                    r = pixels.data[index++]/<span class="number">255</span>, g = pixels.data[index++]/<span class="number">255</span>, b = pixels.data[index++]/<span class="number">255</span>, a = pixels.data[index++]/<span class="number">255</span>;</span><br><span class="line">                    <span class="comment">// console.log(a);</span></span><br><span class="line">                    <span class="comment">// if transparent</span></span><br><span class="line">                    <span class="keyword">if</span> (a &lt; <span class="number">1</span>) &#123;</span><br><span class="line">                        r = ((<span class="number">1</span> - a) * r) + (a * r);</span><br><span class="line">                        g = ((<span class="number">1</span> - a) * g) + (a * g);</span><br><span class="line">                        b = ((<span class="number">1</span> - a) * b) + (a * b);</span><br><span class="line">                    &#125;</span><br><span class="line">                    stream.write(<span class="built_in">parseFloat</span>(r) + <span class="string">" "</span> + <span class="built_in">parseFloat</span>(g) + <span class="string">" "</span> + <span class="built_in">parseFloat</span>(b) + <span class="string">"\n"</span>);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            stream.end();</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">program</span><br><span class="line">    .version(<span class="string">'0.0.1'</span>)</span><br><span class="line">    .arguments(<span class="string">'&lt;hald&gt; &lt;outout&gt;'</span>)</span><br><span class="line">    .option(<span class="string">'-a, --creator [value]'</span>, <span class="string">'Creator information'</span>)</span><br><span class="line">    .option(<span class="string">'-c, --copyright [value]'</span>, <span class="string">'Copyright'</span>)</span><br><span class="line">    .action(<span class="function"><span class="keyword">function</span>(<span class="params">hald, output</span>) </span>&#123;</span><br><span class="line">        haldToCube(hald, output, program.creator, program.copyright);</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">program.parse(process.argv);</span><br></pre></td></tr></table></figure>
+<p>如此，我們就可以將這個色彩效果應用在 Final Cut Pro 中 (via LUT Utility)</p>
+<p>—</p>
+<p>如果我們拿到別人的 Hald Image，有時會造成產生出來的 cube 檔太大</p>
+<p>我們可以利用 <code>convert</code> 進行縮小作業</p>
+<p>先產生預設色彩速查表</p>
+<p><code>convert hald:5 hald.png</code></p>
+<p>將指定的 <code>other_hald</code> 色彩空間套用在我們剛剛產生的預設色彩速查表上，再轉存成 <code>output_hald.png</code></p>
+<p><code>convert hald.png other_hald.png --hald-clut output_hald.png</code></p>
+</span>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/hexo-blog/tags/CLUT/" rel="tag">#CLUT</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/hexo-blog/2016/01/23/8-sass-mixins-you-must-have-in-your-toolbox/" rel="prev">8 SASS mixins you must have in your toolbox</a>
+            
+          </div>
+
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/hexo-blog/2015/09/16/CasperJS/" rel="next">CasperJS</a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+            </div>
+
+            
+
+            
+              <div class="comments" id="comments">
+                
+              </div>
+            
+        </div>
+
+        
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目錄
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            本站概覽
+          </li>
+        </ul>
+      
+
+      <section class="site-overview">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" src="/hexo-blog/images/default_avatar.jpg" alt="Starck Lin" itemprop="image"/>
+          <p class="site-author-name" itemprop="name">Starck Lin</p>
+        </div>
+        <p class="site-description motion-element" itemprop="description">Art Director / Developer / Artisan</p>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/hexo-blog/archives">
+              <span class="site-state-item-count">19</span>
+              <span class="site-state-item-name">文章</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            
+              <span class="site-state-item-count">0</span>
+              <span class="site-state-item-name">分類</span>
+              
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/hexo-blog/tags">
+              <span class="site-state-item-count">25</span>
+              <span class="site-state-item-name">標籤</span>
+              </a>
+          </div>
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator"></div>
+          <div class="post-toc">
+            
+            
+              <p class="post-toc-empty">此文章未包含目錄</p>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+    </main>
+
+    <footer id="footer" class="footer">
+        <div class="footer-inner">
+            <div class="copyright" >
+  
+  &copy; &nbsp; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="icon-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Starck Lin</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 強力驅動
+</div>
+
+<div class="theme-info">
+  主題 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+
+        </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+</div>
+
+<script type="text/javascript" src="/hexo-blog/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+  
+    
+    
+
+  
+
+
+  
+  
+  <script type="text/javascript" src="/hexo-blog/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/hexo-blog/js/fancy-box.js?v=0.4.4"></script>
+
+
+  <script type="text/javascript" src="/hexo-blog/js/helpers.js?v=0.4.4"></script>
+  
+
+  <script type="text/javascript" src="/hexo-blog/vendors/velocity/velocity.min.js"></script>
+  <script type="text/javascript" src="/hexo-blog/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/hexo-blog/js/motion_global.js?v=0.4.4" id="motion.global"></script>
+
+
+
+  <script type="text/javascript" src="/hexo-blog/js/search-toggle.js"></script>
+
+
+  
+<script type="text/javascript" src="/hexo-blog/js/bootstrap.scrollspy.js?v=0.4.4" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+          var self = this;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      $(indicator).velocity('stop').velocity({
+        opacity: action === 'show' ? 0.4 : 0
+      }, { duration: 100 });
+    }
+
+  });
+</script>
+
+
+  <script type="text/javascript" id="sidebar.nav">
+    $(document).ready(function () {
+      var html = $('html');
+
+      $('.sidebar-nav li').on('click', function () {
+        var item = $(this);
+        var activeTabClassName = 'sidebar-nav-active';
+        var activePanelClassName = 'sidebar-panel-active';
+        if (item.hasClass(activeTabClassName)) {
+          return;
+        }
+
+        var currentTarget = $('.' + activePanelClassName);
+        var target = $('.' + item.data('target'));
+
+        currentTarget.velocity('transition.slideUpOut', 200, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', 200)
+            .addClass(activePanelClassName);
+        });
+
+        item.siblings().removeClass(activeTabClassName);
+        item.addClass(activeTabClassName);
+      });
+
+      $('.post-toc a').on('click', function (e) {
+        e.preventDefault();
+        var offset = $(escapeSelector(this.getAttribute('href'))).offset().top;
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        });
+      });
+
+      // Expand sidebar on post detail page by default, when post has a toc.
+      var $tocContent = $('.post-toc-content');
+      if (isDesktop() && CONFIG.sidebar === 'post') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          displaySidebar();
+        }
+      }
+    });
+  </script>
+
+
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        if (CONFIG.sidebar === 'always') {
+            displaySidebar();
+        }
+    });
+</script>
+
+
+
+
+
+
+
+
+<!-- lazyload -->
+<script type="text/javascript" src="/hexo-blog/js/lazyload.js"></script>
+<script type="text/javascript">
+    jQuery(function () {
+        jQuery("#posts img").lazyload({
+            placeholder: "/hexo-blog/images/loading.gif",
+            effect: "fadeIn"
+        });
+    });
+</script>
+</body>
+</html>
